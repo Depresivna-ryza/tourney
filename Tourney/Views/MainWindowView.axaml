@@ -1,0 +1,66 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Tourney.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
+        x:Class="Tourney.Views.MainWindowView"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Tourney">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <SplitView Name="TopPane"
+               IsPaneOpen="{Binding IsPaneOpen}"
+               OpenPaneLength="300" 
+               DisplayMode="CompactInline"
+               CompactPaneLength="60"
+               PaneBackground="Black"
+               Background="Black"
+               Margin="5,5,5,5">
+        
+        <SplitView.Pane>
+            <Border CornerRadius="10" Background="#1e1e1e" Margin="5" Padding="5">
+                <StackPanel Spacing="10">
+                    
+                    
+                    <Button Command="{Binding TogglePaneOpenCommand}">
+                        <PathIcon Data="{StaticResource MenuLinesIcon}" Width="20" Height="20"/>
+                    </Button>
+                    
+                    
+                    <ListBox ItemsSource="{Binding PageItems}" SelectedItem="{Binding CurrentPageItem}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="{x:Type vm:MainPageItem}">
+                                <StackPanel Orientation="Horizontal" Spacing="20" >
+                                    <PathIcon Data="{Binding Icon}" Width="20" Height="20"/>
+                                    <TextBlock Text="{Binding Label}" FontSize="20" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    
+                    
+                </StackPanel>
+            </Border>
+        </SplitView.Pane>
+        
+        
+        
+        <SplitView.Content>
+            <Border CornerRadius="10"
+                    Margin="5"
+                    Background="#1e1e1e" 
+                    Padding="10">
+                <TransitioningContentControl Content="{Binding CurrentPageItem.ViewModel}" />
+            </Border>
+        </SplitView.Content>
+        
+        
+    </SplitView>
+</Window>

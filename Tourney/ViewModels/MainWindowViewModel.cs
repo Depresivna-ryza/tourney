@@ -1,0 +1,63 @@
+﻿using System.Collections.ObjectModel;
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Media;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+
+namespace Tourney.ViewModels;
+
+public partial class MainWindowViewModel : ViewModelBase
+{
+    [ObservableProperty]
+    private bool _isPaneOpen = true;
+    
+    [RelayCommand]
+    private void TogglePaneOpen()
+    {
+        IsPaneOpen = !IsPaneOpen;
+    }
+    // [ObservableProperty] 
+    // private ViewModelBase _currentPage = new HomePageViewModel();
+    // partial void OnSelectedItemChanged(MainPageItem? newValue)
+    // {
+    //     if (newValue is not null)
+    //     {
+    //         CurrentPage = (ViewModelBase) Activator.CreateInstance(newValue.ModelType);
+    //     }
+    // }
+
+    public ObservableCollection<MainPageItem> PageItems { get; set; } =
+    [
+        new MainPageItem("Home", new HomePageViewModel(), "HomeIcon"),
+        new MainPageItem("Teams", new TeamsPageViewModel(), "TeamIcon"),
+        new MainPageItem("Tourneys", new TourneysPageViewModel(), "TourneyIcon"),
+        new MainPageItem("Add Team", new AddTeamPageViewModel(), "AddTeamIcon"),
+        new MainPageItem("New Tourney", new TourneyPageViewModel(), "TourneyIcon"),
+    ];
+
+    [ObservableProperty] 
+    private MainPageItem _currentPageItem;
+
+    
+    public MainWindowViewModel()
+    {
+        CurrentPageItem = PageItems[0];
+    }
+}
+
+public class MainPageItem
+{
+    public string Label { get; set; }
+    public ViewModelBase ViewModel { get; set; }
+    public StreamGeometry Icon { get; set; }
+    
+    public MainPageItem(string label, ViewModelBase viewModel, string iconKey)
+    {
+        Label = label;
+        ViewModel = viewModel;
+        Application.Current!.TryFindResource(iconKey, out var res);
+        Icon = (StreamGeometry) res!;
+    }
+    
+}

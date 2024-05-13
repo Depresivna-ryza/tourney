@@ -1,0 +1,25 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Tourney.App"
+             xmlns:local="using:Tourney"
+             xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
+             RequestedThemeVariant="Dark">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+        <FluentTheme>
+            <FluentTheme.Palettes>
+                <ColorPaletteResources x:Key="Light" Accent="#ff0073cf" AltHigh="White" AltLow="White" AltMedium="White" AltMediumHigh="White" AltMediumLow="White" BaseHigh="Black" BaseLow="#ffcccccc" BaseMedium="#ff898989" BaseMediumHigh="#ff5d5d5d" BaseMediumLow="#ff737373" ChromeAltLow="#ff5d5d5d" ChromeBlackHigh="Black" ChromeBlackLow="#ffcccccc" ChromeBlackMedium="#ff5d5d5d" ChromeBlackMediumLow="#ff898989" ChromeDisabledHigh="#ffcccccc" ChromeDisabledLow="#ff898989" ChromeGray="#ff737373" ChromeHigh="#ffcccccc" ChromeLow="#ffececec" ChromeMedium="#ffe6e6e6" ChromeMediumLow="#ffececec" ChromeWhite="White" ListLow="#ffe6e6e6" ListMedium="#ffcccccc" RegionColor="White" />
+                <ColorPaletteResources x:Key="Dark" Accent="#ff0062b1" AltHigh="Black" AltLow="Black" AltMedium="Black" AltMediumHigh="Black" AltMediumLow="Black" BaseHigh="White" BaseLow="#ff3b3b3b" BaseMedium="#ff9d9d9d" BaseMediumHigh="#ffb6b6b6" BaseMediumLow="#ff6c6c6c" ChromeAltLow="#ffb6b6b6" ChromeBlackHigh="Black" ChromeBlackLow="#ffb6b6b6" ChromeBlackMedium="Black" ChromeBlackMediumLow="Black" ChromeDisabledHigh="#ff3b3b3b" ChromeDisabledLow="#ff9d9d9d" ChromeGray="#ff858585" ChromeHigh="#ff858585" ChromeLow="#ff191919" ChromeMedium="#ff212121" ChromeMediumLow="#ff323232" ChromeWhite="White" ListLow="#ff212121" ListMedium="#ff3b3b3b" RegionColor="#d1080808" />
+            </FluentTheme.Palettes>
+        </FluentTheme>
+        
+        <!-- <themes:MaterialTheme BaseTheme="Dark" PrimaryColor="Blue" SecondaryColor="Red" /> -->
+        
+        <StyleInclude Source="avares://Tourney/Assets/Icons.axaml"></StyleInclude>
+    </Application.Styles>
+</Application>
