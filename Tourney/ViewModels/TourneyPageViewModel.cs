@@ -21,6 +21,7 @@ public partial class TourneyPageViewModel : ViewModelBase
         
         _newTourneyViewModel.TourneyStarted += (sender, args) =>
         {
+            OngoingTourneyViewModel.StartTourney();
             CurrentViewModel = OngoingTourneyViewModel;
         };
         

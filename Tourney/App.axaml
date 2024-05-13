@@ -2,8 +2,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="Tourney.App"
              xmlns:local="using:Tourney"
-             xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
              RequestedThemeVariant="Dark">
+             <!-- xmlns:sty="using:FluentAvalonia.Styling" -->
+             <!-- xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles" -->
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
@@ -17,6 +18,7 @@
                 <ColorPaletteResources x:Key="Dark" Accent="#ff0062b1" AltHigh="Black" AltLow="Black" AltMedium="Black" AltMediumHigh="Black" AltMediumLow="Black" BaseHigh="White" BaseLow="#ff3b3b3b" BaseMedium="#ff9d9d9d" BaseMediumHigh="#ffb6b6b6" BaseMediumLow="#ff6c6c6c" ChromeAltLow="#ffb6b6b6" ChromeBlackHigh="Black" ChromeBlackLow="#ffb6b6b6" ChromeBlackMedium="Black" ChromeBlackMediumLow="Black" ChromeDisabledHigh="#ff3b3b3b" ChromeDisabledLow="#ff9d9d9d" ChromeGray="#ff858585" ChromeHigh="#ff858585" ChromeLow="#ff191919" ChromeMedium="#ff212121" ChromeMediumLow="#ff323232" ChromeWhite="White" ListLow="#ff212121" ListMedium="#ff3b3b3b" RegionColor="#d1080808" />
             </FluentTheme.Palettes>
         </FluentTheme>
+        <!-- <sty:FluentAvaloniaTheme /> -->
         
         <!-- <themes:MaterialTheme BaseTheme="Dark" PrimaryColor="Blue" SecondaryColor="Red" /> -->
         

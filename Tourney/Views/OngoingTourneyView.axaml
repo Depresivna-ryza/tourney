@@ -1,0 +1,63 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:views="clr-namespace:Tourney.Views;assembly=Tourney"
+             xmlns:viewModels="clr-namespace:Tourney.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Tourney.Views.OngoingTourneyView"
+             x:DataType="viewModels:OngoingTourneyViewModel">
+    <Grid RowDefinitions="*,50">
+        <Grid ColumnDefinitions="*,200,*,200,*,200,*">
+            
+            <Grid Grid.Column="1">
+                <ItemsControl VerticalAlignment="Center" 
+                              ItemsSource="{Binding Round1}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <views:MatchView DataContext="{Binding}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>     
+            
+            <Grid Grid.Column="3">
+                <ItemsControl VerticalAlignment="Center"
+                    ItemsSource="{Binding Round2}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <views:MatchView DataContext="{Binding}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+            
+            <Grid Grid.Column="5">
+                <ItemsControl VerticalAlignment="Center"
+                         ItemsSource="{Binding Round3}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <views:MatchView DataContext="{Binding}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </Grid>
+        
+        <Grid Grid.Row="1" ColumnDefinitions="10*,100,10,100,*">
+            <Button Grid.Column="1" 
+                    Content="Discard" 
+                    HorizontalAlignment="Right" 
+                    Margin="10"
+                    Command="{Binding DiscardTourneyCommand}"
+                    />
+            <Button Grid.Column="3" 
+                    Content="Save" 
+                    HorizontalAlignment="Right" 
+                    Margin="10"
+                    Command="{Binding SaveTourneyCommand}"
+                    />
+        </Grid>
+    </Grid>
+    
+</UserControl>

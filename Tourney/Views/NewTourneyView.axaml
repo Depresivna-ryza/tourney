@@ -33,15 +33,15 @@
         </Grid>
 
         <Grid Grid.Column="1" Grid.Row="2">
-            <ListBox 
+            <ItemsControl 
                 Background="#1e1e1e"
                 ItemsSource="{Binding SelectedTeams}">
-                <ListBox.ItemTemplate>
+                <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Name}" FontSize="15" />
                     </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
 
         <Grid Grid.Column="0"  Grid.Row="3">

@@ -12,6 +12,9 @@ public partial class Tourney : ObservableObject
 {
     [ObservableProperty] 
     private string _name;
+    
+    [ObservableProperty]
+    private Team _winner;
     public ObservableCollection<Team> Teams { get; set; }
     public ObservableCollection<Match> Round1 { get; set; }
     public ObservableCollection<Match> Round2 { get; set; }

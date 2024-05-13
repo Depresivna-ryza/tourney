@@ -19,7 +19,7 @@
                IsPaneOpen="{Binding IsPaneOpen}"
                OpenPaneLength="300" 
                DisplayMode="CompactInline"
-               CompactPaneLength="60"
+               CompactPaneLength="65"
                PaneBackground="Black"
                Background="Black"
                Margin="5,5,5,5">
@@ -29,17 +29,21 @@
                 <StackPanel Spacing="10">
                     
                     
-                    <Button Command="{Binding TogglePaneOpenCommand}">
+                    <Button Command="{Binding TogglePaneOpenCommand}" 
+                            Padding="10" CornerRadius="7"
+                            Margin="1,0,0,5"
+                            >
                         <PathIcon Data="{StaticResource MenuLinesIcon}" Width="20" Height="20"/>
                     </Button>
                     
                     
-                    <ListBox ItemsSource="{Binding PageItems}" SelectedItem="{Binding CurrentPageItem}">
+                    <ListBox ItemsSource="{Binding PageItems}" 
+                             SelectedItem="{Binding CurrentPageItem}">
                         <ListBox.ItemTemplate>
                             <DataTemplate DataType="{x:Type vm:MainPageItem}">
-                                <StackPanel Orientation="Horizontal" Spacing="20" >
+                                <StackPanel Orientation="Horizontal" Spacing="20" HorizontalAlignment="Left">
                                     <PathIcon Data="{Binding Icon}" Width="20" Height="20"/>
-                                    <TextBlock Text="{Binding Label}" FontSize="20" Margin="5"/>
+                                    <TextBlock Text="{Binding Label}" FontSize="16" Margin="0" VerticalAlignment="Bottom"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

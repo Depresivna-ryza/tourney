@@ -7,11 +7,6 @@ namespace Tourney.ViewModels;
 
 public partial class TeamsPageViewModel : ViewModelBase
 {
-    public ObservableCollection<Team> Teams { get; set; }
-
-
-    [ObservableProperty] 
-    private Team? _selectedTeam;
     public TeamsPageViewModel()
     {
         Teams = TourneyManager.Instance.Teams;
@@ -20,6 +15,10 @@ public partial class TeamsPageViewModel : ViewModelBase
         // subscribe to model changes
         TourneyManager.Instance.Teams.CollectionChanged += (sender, args) => UpdateTeams();
     }
+    public ObservableCollection<Team> Teams { get; set; }
+    
+    [ObservableProperty] 
+    private Team? _selectedTeam;
     public void UpdateTeams()
     {
         Teams = TourneyManager.Instance.Teams;

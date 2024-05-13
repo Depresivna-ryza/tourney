@@ -15,6 +15,7 @@ public partial class Match : ObservableObject
     {
         IsFinal = true;
     }
+    
     [ObservableProperty]
     private Team? _team1 = null;
     [ObservableProperty]
@@ -27,10 +28,13 @@ public partial class Match : ObservableObject
     private Match? _nextMatch = null;
     [ObservableProperty]
     private bool _nextMatchSlot1;
+
+
+    [ObservableProperty] 
+    private bool _isFinal;
     
-    public bool IsFinal { get; set; }
-    
-    public MatchState State { get; set; } = MatchState.NotStarted;
+    [ObservableProperty]
+    private MatchState _state = MatchState.NotStarted;
     
     
     public enum MatchState

@@ -9,23 +9,35 @@ namespace Tourney.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
-    [ObservableProperty]
-    private bool _isPaneOpen = true;
-    
+    [ObservableProperty] private bool _isPaneOpen = true;
+
     [RelayCommand]
     private void TogglePaneOpen()
     {
         IsPaneOpen = !IsPaneOpen;
+        ToggleTextLabels();
     }
-    // [ObservableProperty] 
-    // private ViewModelBase _currentPage = new HomePageViewModel();
-    // partial void OnSelectedItemChanged(MainPageItem? newValue)
-    // {
-    //     if (newValue is not null)
-    //     {
-    //         CurrentPage = (ViewModelBase) Activator.CreateInstance(newValue.ModelType);
-    //     }
-    // }
+
+    private void ToggleTextLabels()
+    {
+        if (IsPaneOpen)
+        {
+            foreach (var item in PageItems)
+            {
+                item.Label = item.HiddenLabel;
+            }
+        }
+        else
+        {
+            foreach (var item in PageItems)
+            {
+                item.Label = "";
+            }
+        }
+        
+        // trigger event collection changed
+        PageItems = new ObservableCollection<MainPageItem>(PageItems);
+    }
 
     public ObservableCollection<MainPageItem> PageItems { get; set; } =
     [
@@ -46,15 +58,18 @@ public partial class MainWindowViewModel : ViewModelBase
     }
 }
 
-public class MainPageItem
+public partial class MainPageItem : ObservableObject
 {
-    public string Label { get; set; }
+    [ObservableProperty] 
+    private string _label;
+    public string HiddenLabel { get; set; }
     public ViewModelBase ViewModel { get; set; }
     public StreamGeometry Icon { get; set; }
     
     public MainPageItem(string label, ViewModelBase viewModel, string iconKey)
     {
         Label = label;
+        HiddenLabel = label;
         ViewModel = viewModel;
         Application.Current!.TryFindResource(iconKey, out var res);
         Icon = (StreamGeometry) res!;

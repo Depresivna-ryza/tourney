@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Tourney.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Tourney.Views.MatchView"
+             x:DataType="viewModels:MatchViewModel">
+        
+        <Grid ColumnDefinitions="50,50" RowDefinitions="30,30">
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Match.Team1.Name}"/>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Match.Team1.Name}"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Match.Team2.Name}"/>
+                
+
+                <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
+                        Content="Start" 
+                        IsEnabled="False"
+                        IsVisible="{Binding NotStarted}"/>
+
+                <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
+                        Content="Start" 
+                        IsEnabled="True"
+                        IsVisible="{Binding ReadyToStart}"
+                        Command="{Binding StartMatchCommand}"/>
+                
+                
+                <Button Grid.Row="1" Grid.Column="0" 
+                        Content="{Binding Match.Team1.Name}" 
+                        IsVisible="{Binding InProgress}" 
+                        Command="{Binding EndMatchCommand}" 
+                        CommandParameter="{Binding Match.Team1}"/>
+                
+                <Button Grid.Row="1" Grid.Column="1" 
+                        Content="{Binding 
+                        Match.Team2.Name}" 
+                        IsVisible="{Binding InProgress}" 
+                        Command="{Binding EndMatchCommand}" 
+                        CommandParameter="{Binding Match.Team2}"/>
+                
+                
+                <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
+                           Text="{Binding Match.Winner.Name}" 
+                           IsVisible="{Binding Finished}"/>
+        </Grid>
+</UserControl>

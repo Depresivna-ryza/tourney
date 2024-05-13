@@ -1,21 +1,17 @@
 using System;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using Tourney.Models;
 
 namespace Tourney.ViewModels;
 
-public partial class OngoingTourneyViewModel : ViewModelBase
+public partial class TourneyViewModel : ViewModelBase
 {
-    public OngoingTourneyViewModel()
-    {
-        _tourney = TourneyManager.Instance.CurrentTourney;
-        TourneyManager.Instance.CurrentTourneyChanged += (sender, args) => UpdateTourney();
+    
+    public TourneyViewModel(Models.Tourney tourney) {
+        UpdateTourney(tourney);
     }
 
-    
-    public event EventHandler TourneyEnded;
     public ObservableCollection<MatchViewModel> Round1 { get; set; } = new();
     public ObservableCollection<MatchViewModel> Round2 { get; set; } = new();
     public ObservableCollection<MatchViewModel> Round3 { get; set; } = new();
@@ -23,25 +19,18 @@ public partial class OngoingTourneyViewModel : ViewModelBase
     [ObservableProperty] 
     private Models.Tourney _tourney;
     
-    
-    public void StartTourney()
-    {
-        UpdateTourney();
-    }
-    
-    private void UpdateTourney()
+    private void UpdateTourney(Models.Tourney? newTourney)
     {
         Round1.Clear();
         Round2.Clear();
         Round3.Clear();
         
-        
-        if (TourneyManager.Instance.CurrentTourney is null)
+        if (newTourney == null)
         {
             return;
         }
-        
-        Tourney = TourneyManager.Instance.CurrentTourney;
+
+        Tourney = newTourney;
         
         
         foreach (var match in Tourney.Round1)
@@ -59,19 +48,6 @@ public partial class OngoingTourneyViewModel : ViewModelBase
             Round3.Add(new MatchViewModel(match));
         }
     }
-    
-    [RelayCommand]
-    private void DiscardTourney()
-    {
-        TourneyManager.Instance.DiscardCurrentTourney();
-        TourneyEnded?.Invoke(this, EventArgs.Empty);
-    }
 
-    [RelayCommand]
-    public void SaveTourney()
-    {
-        if (TourneyManager.Instance.SaveCurrentTourney()){
-            TourneyEnded?.Invoke(this, EventArgs.Empty);
-        }
-    }
+    
 }
