@@ -28,7 +28,7 @@
     
 
     
-    <Grid ColumnDefinitions="*,540,*" RowDefinitions="100,*,300,2*" ShowGridLines="False">
+    <Grid ColumnDefinitions="*,540,*" RowDefinitions="100,1,300,*" ShowGridLines="False">
         
         <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0">
             <TextBlock Text="Add Team" 

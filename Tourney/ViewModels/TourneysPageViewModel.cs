@@ -22,6 +22,14 @@ public partial class TourneysPageViewModel : ViewModelBase
     
     private void UpdateSelectedTourney()
     {
+        if (SelectedTourney == null)
+        {
+            Enabled = false;
+            return;
+        }
+        
+        Enabled = true;
+        TourneyViewModel = new TourneyViewModel(SelectedTourney);
         TourneyViewModel.UpdateTourney(SelectedTourney);
     }
 
@@ -36,6 +44,9 @@ public partial class TourneysPageViewModel : ViewModelBase
     private Models.Tourney? _selectedTourney;
 
     [ObservableProperty] 
-    private TourneyViewModel _tourneyViewModel = new TourneyViewModel(null);
+    private TourneyViewModel? _tourneyViewModel = null;    
+    
+    [ObservableProperty] 
+    private bool _enabled = false;
 
 }

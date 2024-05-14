@@ -6,12 +6,15 @@
              xmlns:viewModels="clr-namespace:Tourney.ViewModels"
              mc:Ignorable="d" d:DesignWidth="1800" d:DesignHeight="1450"
              x:Class="Tourney.Views.TourneyView"
-             x:DataType="viewModels:TourneyViewModel">
+             x:DataType="viewModels:TourneyViewModel"
+             >
     
     
-    <Border Background="#101010" CornerRadius="10">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
         
-    <Grid ColumnDefinitions="*,300,*,*,300,*,*,300,*,*,50,* " RowDefinitions="*,*,*,*,*,*,*,*">
+    <Border Background="#101010" CornerRadius="10" MinWidth="1500" MinHeight="600" Padding="30">
+        
+    <Grid ColumnDefinitions="*,300,*,*,300,*,*,300,* " RowDefinitions="*,*,*,*,*,*,*,*">
         
         <Grid Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
             <views:MatchView DataContext="{Binding Round1[0]}"/>
@@ -46,6 +49,8 @@
         </Grid>
         
         
+        
+        
         <!-- add grid lines -->
         
         <Grid Grid.Column="2" Grid.Row="0" Grid.RowSpan="2">
@@ -69,9 +74,7 @@
         <Grid Grid.Column="3" Grid.Row="5" Grid.RowSpan="2">
             <Border Height="5" CornerRadius="5" Margin="0,0,10,0" Background="#202020" />
         </Grid>
-        
-        
-        
+
         
         <Grid Grid.Column="2"  Grid.Row="1" Grid.RowSpan="2">
             <Border Width="5" CornerRadius="5" Background="#202020" HorizontalAlignment="Right"/>
@@ -99,6 +102,10 @@
             <Border Width="5" CornerRadius="5" Background="#202020" HorizontalAlignment="Right"/>
         </Grid>
         
+    </Grid>
+    </Border>
+    </ScrollViewer>
+</UserControl>
         
 
             
@@ -134,6 +141,3 @@
         <!--         </ItemsControl.ItemTemplate> -->
         <!--     </ItemsControl> -->
         <!-- </Grid> -->
-    </Grid>
-    </Border>
-</UserControl>

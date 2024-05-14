@@ -58,5 +58,8 @@ public partial class Tourney : ObservableObject
             Round1[i/2].AddTeam(Teams[i], true);
             Round1[i/2].AddTeam(Teams[i + 1], false);
         }
+
+        Round3[0].PropertyChanged += (sender, args) => OnPropertyChanged();
+
     }
 }

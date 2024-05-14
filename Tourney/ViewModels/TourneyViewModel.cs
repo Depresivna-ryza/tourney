@@ -25,21 +25,22 @@ public partial class TourneyViewModel : ViewModelBase
     private Models.Tourney? _tourney;
     
     [ObservableProperty]
-    private string _trophyColor = "#202020";   
+    private string _trophyColor = "#202020";
     
     [ObservableProperty]
     private string _winnerName = "";
     
     public void UpdateTourney(Models.Tourney? newTourney)
     {
-        Round1.Clear();
-        Round2.Clear();
-        Round3.Clear();
         
         if (newTourney == null)
         {
             return;
         }
+        
+        Round1.Clear();
+        Round2.Clear();
+        Round3.Clear();
 
         Tourney = newTourney;
         

@@ -59,8 +59,9 @@
             </ListBox.Styles>
         </ListBox>
         
-        <views:TourneyView Grid.Column="1" Grid.Row="1"
-                           DataContext="{Binding TourneyViewModel}"/>
+        
+        <TransitioningContentControl Grid.Column="3" Grid.Row="1" Content="{Binding TourneyViewModel}" />
+        <!-- <views:TourneyView Grid.Column="1" Grid.Row="1" IsEnabled="False" DataContext="{Binding TourneyViewModel}" /> -->
     </Grid>
 
 </UserControl>

@@ -12,7 +12,8 @@
                     <Setter Property="CornerRadius" Value="300"/>
                     <Setter Property="Background" Value="White"/>
                     <Setter Property="Foreground" Value="#1e1e1e"/>
-                    <!-- <Setter Property="Padding" Value="16"/> -->
+                    <Setter Property="Padding" Value="20,5"/>
+                    <Setter Property="Margin" Value="0"/>
                     <Setter Property="FontSize" Value="13"/>
                     <Setter Property="FontWeight" Value="Bold"/>
                 </Style>
@@ -20,8 +21,9 @@
                 <Style Selector="Button:pointerover /template/ ContentPresenter">
                     <Setter Property="Background" Value="#aaaaaa"/>
                     <Setter Property="Foreground" Value="#1e1e1e"/>
-                    <!-- <Setter Property="Padding" Value="18"/> -->
-                    <!-- <Setter Property="FontSize" Value="13"/> -->
+                    <Setter Property="Padding" Value="20,5"/>
+                    <Setter Property="Margin" Value="0"/>
+                    <Setter Property="FontSize" Value="13"/>
                     <Setter Property="FontWeight" Value="Bold"/>
                 </Style>
             </UserControl.Styles>
@@ -60,37 +62,36 @@
                 
                 
                 <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-                    <Border Background="#606060" Height="32" Width="32" CornerRadius="20" Margin="20,0">
+                    <Border Background="Transparent" Height="32" Width="32" CornerRadius="20" Margin="20,0">
                         
                         <TextBlock Text="vs" 
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   FontWeight="Heavy"
                                    FontSize="20"/>
                     </Border>
                 </Grid>
+                <!-- <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"> -->
+                <!--     <Button Content="Start" -->
+                <!--             IsEnabled="False" -->
+                <!--             Padding="20,0" -->
+                <!--             IsVisible="{Binding NotStarted}" -->
+                <!--             HorizontalAlignment="Center" -->
+                <!--             /> -->
+                <!-- </Grid>                -->
+                
+                
                 <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
                     <Button Content="Start"
-                            IsEnabled="False"
-                            Padding="20,0"
-                            IsVisible="{Binding NotStarted}"
                             HorizontalAlignment="Center"
-                            />
-                </Grid>               
-                
-                
-                <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-                    <Button Content="Start"
-                            IsVisible="{Binding ReadyToStart}" 
+                            IsVisible="{Binding ReadyToStart}"
                             Command="{Binding StartMatchCommand}"
-                            Padding="20,0"
-                            HorizontalAlignment="Center"
                             />
                 </Grid>
                 
                 
                 <Grid Grid.Row="2" Grid.Column="0">
                     <Button Content="Win"
-                            Padding="20,0"
                             HorizontalAlignment="Center"
                             IsVisible="{Binding InProgress}"
                             Command="{Binding EndMatchCommand}"
@@ -100,7 +101,6 @@
                 
                 <Grid Grid.Row="2" Grid.Column="1">
                     <Button Content="Win"
-                            Padding="20,0"
                             HorizontalAlignment="Center"
                             IsVisible="{Binding InProgress}"
                             Command="{Binding EndMatchCommand}"
