@@ -7,9 +7,14 @@ namespace Tourney.ViewModels;
 
 public partial class TourneyViewModel : ViewModelBase
 {
-    
-    public TourneyViewModel(Models.Tourney tourney) {
+
+    public TourneyViewModel(Models.Tourney? tourney)
+    {
         UpdateTourney(tourney);
+        if (tourney != null)
+        {
+            tourney.PropertyChanged += (sender, args) => UpdateTourney(tourney);
+        }
     }
 
     public ObservableCollection<MatchViewModel> Round1 { get; set; } = new();
@@ -17,9 +22,15 @@ public partial class TourneyViewModel : ViewModelBase
     public ObservableCollection<MatchViewModel> Round3 { get; set; } = new();
     
     [ObservableProperty] 
-    private Models.Tourney _tourney;
+    private Models.Tourney? _tourney;
     
-    private void UpdateTourney(Models.Tourney? newTourney)
+    [ObservableProperty]
+    private string _trophyColor = "#202020";   
+    
+    [ObservableProperty]
+    private string _winnerName = "";
+    
+    public void UpdateTourney(Models.Tourney? newTourney)
     {
         Round1.Clear();
         Round2.Clear();
@@ -47,6 +58,9 @@ public partial class TourneyViewModel : ViewModelBase
         {
             Round3.Add(new MatchViewModel(match));
         }
+        
+        TrophyColor = Tourney.Winner != null ? "White" : "#202020";
+        WinnerName = Tourney.Winner?.Name ?? "";
     }
 
     

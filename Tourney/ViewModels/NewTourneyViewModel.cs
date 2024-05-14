@@ -34,7 +34,19 @@ public partial class NewTourneyViewModel : ViewModelBase
     public void SelectionChanged()
     {
         SelectedTeamsCount = SelectedTeams.Count;
-        CanStartTourney = SelectedTeamsCount == 8;
+        UpdateCanStartTourney();
+    }
+
+    partial void OnTourneyNameChanged(string value)
+    {
+        UpdateCanStartTourney();
+    }
+
+    public void UpdateCanStartTourney()
+    {
+        CanStartTourney = SelectedTeamsCount == 8 && 
+                          !string.IsNullOrWhiteSpace(TourneyName) && 
+                          TourneyName.Length > 3;
     }
     
     [RelayCommand]

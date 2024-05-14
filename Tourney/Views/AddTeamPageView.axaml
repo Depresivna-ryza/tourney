@@ -7,27 +7,78 @@
              x:Class="Tourney.Views.AddTeamPageView"
              x:DataType="viewModels:AddTeamPageViewModel">
     
+    <UserControl.Styles>
+        <Style Selector="Button">
+            <Setter Property="CornerRadius" Value="300"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#1e1e1e"/>
+            <Setter Property="Padding" Value="16"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="Bold"/> 
+        </Style>
+        
+        <Style Selector="Button:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#1e1e1e"/>
+            <Setter Property="Padding" Value="18"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="Bold"/> 
+        </Style>
+    </UserControl.Styles>
     
-    <Grid ColumnDefinitions="*,340,60,*" RowDefinitions="50,*,50,5,200,5,50,4*">
+
     
-        <Grid Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0">
-            <TextBlock Text="Add Team" FontSize="36" HorizontalAlignment="Center"/>
-        </Grid>
-    
-        <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2">
-            <TextBox Text="{Binding NewTeamName}" Watermark="Team Name" FontSize="15" Background="#1e1e1e" Margin="5"/>
-        </Grid>
-        <Grid Grid.Column="1" Grid.ColumnSpan="2"  Grid.Row="4">
-            <TextBox Text="{Binding NewTeamDescription}" Watermark="Description" FontSize="15" Background="#1e1e1e" Margin="5"/>
+    <Grid ColumnDefinitions="*,540,*" RowDefinitions="100,*,300,2*" ShowGridLines="False">
+        
+        <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0">
+            <TextBlock Text="Add Team" 
+                       FontSize="30" 
+                       HorizontalAlignment="Center" 
+                       FontFamily="Roboto"
+                       Margin="10,10"/>
         </Grid>
         
-        <Grid Grid.Column="1" Grid.Row="6">
-            <TextBlock Text="{Binding Message}" FontSize="15" Margin="5" Foreground="{Binding Color}"/>
-        </Grid>
-             
-        <Grid Grid.Column="2"  Grid.Row="6">
-            <Button Content="Add Team" Command="{Binding AddTeamCommand}" FontSize="15" Margin="5" HorizontalAlignment="Right"/>
+        <Grid Grid.Column="1" Grid.Row="2">
+            <Border Background="Transparent"
+                    BorderBrush="#404040"
+                    BorderThickness="2"
+                    CornerRadius="10"
+                    Padding="60,30,0,30"
+                    Margin="0">
+            
+                <Grid ColumnDefinitions="280,120" RowDefinitions="70,100,80" ShowGridLines="False">
+
+                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0">
+                        <TextBox Text="{Binding NewTeamName}" 
+                                 Watermark="Team Name" 
+                                 FontSize="13" 
+                                 Background="#1e1e1e"
+                                 MaxLength="10"
+                                 Margin="5">
+                        </TextBox>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.ColumnSpan="2"  Grid.Row="1">
+                        <TextBox Text="{Binding NewTeamDescription}" 
+                                 Watermark="Description" 
+                                 FontSize="13" 
+                                 Background="#1e1e1e" 
+                                 MaxLength="200"
+                                 MaxLines="5"
+                                 Margin="5"/>
+                    </Grid>
+                    
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <TextBlock Text="{Binding Message}" FontSize="15" Margin="5" Foreground="{Binding Color}"/>
+                    </Grid>
+                         
+                    <Grid Grid.Column="1"  Grid.Row="2">
+                        <Button Content="Add Team" 
+                                Command="{Binding AddTeamCommand}" 
+                                HorizontalAlignment="Center"/>
+                    </Grid>
+                    
+                </Grid>
+            </Border>
         </Grid>
     </Grid>
-        
 </UserControl>

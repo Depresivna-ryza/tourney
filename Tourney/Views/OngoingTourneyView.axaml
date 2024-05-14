@@ -7,44 +7,23 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Tourney.Views.OngoingTourneyView"
              x:DataType="viewModels:OngoingTourneyViewModel">
-    <Grid RowDefinitions="*,50">
-        <Grid ColumnDefinitions="*,200,*,200,*,200,*">
-            
-            <Grid Grid.Column="1">
-                <ItemsControl VerticalAlignment="Center" 
-                              ItemsSource="{Binding Round1}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <views:MatchView DataContext="{Binding}"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </Grid>     
-            
-            <Grid Grid.Column="3">
-                <ItemsControl VerticalAlignment="Center"
-                    ItemsSource="{Binding Round2}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <views:MatchView DataContext="{Binding}"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </Grid>
-            
-            <Grid Grid.Column="5">
-                <ItemsControl VerticalAlignment="Center"
-                         ItemsSource="{Binding Round3}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <views:MatchView DataContext="{Binding}"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </Grid>
+    <Grid RowDefinitions="100, *,50">
+        
+        <Grid Grid.Column="0" Grid.Row="0">
+            <TextBlock Text="{Binding Tourney.Name}"
+                       FontSize="30" 
+                       HorizontalAlignment="Center" 
+                       FontFamily="Roboto"
+                       Margin="10,10"/>
+
         </Grid>
         
-        <Grid Grid.Row="1" ColumnDefinitions="10*,100,10,100,*">
+        <Grid Grid.Row = "1" Grid.Column="0">
+            <views:TourneyView DataContext="{Binding TourneyViewModel}"/>
+        </Grid>
+
+        
+        <Grid Grid.Row="2" ColumnDefinitions="10*,100,10,100,*">
             <Button Grid.Column="1" 
                     Content="Discard" 
                     HorizontalAlignment="Right" 

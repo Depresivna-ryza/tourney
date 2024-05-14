@@ -2,7 +2,138 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Tourney.Views.TourneyView">
-    Welcome to Avalonia!
+             xmlns:views="clr-namespace:Tourney.Views;assembly=Tourney"
+             xmlns:viewModels="clr-namespace:Tourney.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1800" d:DesignHeight="1450"
+             x:Class="Tourney.Views.TourneyView"
+             x:DataType="viewModels:TourneyViewModel">
+    
+    
+    <Border Background="#101010" CornerRadius="10">
+        
+    <Grid ColumnDefinitions="*,300,*,*,300,*,*,300,*,*,50,* " RowDefinitions="*,*,*,*,*,*,*,*">
+        
+        <Grid Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
+            <views:MatchView DataContext="{Binding Round1[0]}"/>
+        </Grid>
+        
+        <Grid Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
+            <views:MatchView DataContext="{Binding Round1[1]}"/>
+        </Grid>
+        
+        <Grid Grid.Column="1" Grid.Row="4" Grid.RowSpan="2">
+            <views:MatchView DataContext="{Binding Round1[2]}"/>
+        </Grid>
+        
+        <Grid Grid.Column="1" Grid.Row="6" Grid.RowSpan="2">
+            <views:MatchView DataContext="{Binding Round1[3]}"/>
+        </Grid>
+        
+        <Grid Grid.Column="4" Grid.Row="0" Grid.RowSpan="4">
+            <views:MatchView DataContext="{Binding Round2[0]}"/>
+        </Grid>
+        
+        <Grid Grid.Column="4" Grid.Row="4" Grid.RowSpan="4">
+            <views:MatchView DataContext="{Binding Round2[1]}"/>
+        </Grid>
+        
+        <Grid Grid.Column="7" Grid.Row="0" Grid.RowSpan="8">
+            <views:MatchView DataContext="{Binding Round3[0]}"/>
+        </Grid>
+        
+        <Grid Grid.Column="7" Grid.Row="0" Grid.RowSpan="3">
+            <PathIcon Data="{StaticResource TrophyIcon}" Width="150" Height="150" Foreground="{Binding TrophyColor}" VerticalAlignment="Bottom" />
+        </Grid>
+        
+        
+        <!-- add grid lines -->
+        
+        <Grid Grid.Column="2" Grid.Row="0" Grid.RowSpan="2">
+            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#202020" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Column="2" Grid.Row="2" Grid.RowSpan="2">
+            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#202020" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Column="2" Grid.Row="4" Grid.RowSpan="2">
+            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#202020" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Column="2" Grid.Row="6" Grid.RowSpan="2">
+            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#202020" VerticalAlignment="Center"/>
+        </Grid>
+        
+        
+        
+        <Grid Grid.Column="3" Grid.Row="1" Grid.RowSpan="2">
+            <Border Height="5" CornerRadius="5" Margin="0,0,10,0" Background="#202020" />
+        </Grid>        
+        <Grid Grid.Column="3" Grid.Row="5" Grid.RowSpan="2">
+            <Border Height="5" CornerRadius="5" Margin="0,0,10,0" Background="#202020" />
+        </Grid>
+        
+        
+        
+        
+        <Grid Grid.Column="2"  Grid.Row="1" Grid.RowSpan="2">
+            <Border Width="5" CornerRadius="5" Background="#202020" HorizontalAlignment="Right"/>
+        </Grid>
+        <Grid Grid.Column="2"  Grid.Row="5" Grid.RowSpan="2">
+            <Border Width="5" CornerRadius="5" Background="#202020" HorizontalAlignment="Right"/>
+        </Grid>
+
+        
+        
+        
+        <Grid Grid.Column="5" Grid.Row="0" Grid.RowSpan="4">
+            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#202020" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Column="5" Grid.Row="4" Grid.RowSpan="4">
+            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#202020" VerticalAlignment="Center"/>
+        </Grid>
+        
+        <Grid Grid.Column="6" Grid.Row="3" Grid.RowSpan="2">
+            <Border Height="5" CornerRadius="5" Margin="0,0,10,0" Background="#202020" />
+        </Grid>
+        
+        
+        <Grid Grid.Column="5"  Grid.Row="2" Grid.RowSpan="4">
+            <Border Width="5" CornerRadius="5" Background="#202020" HorizontalAlignment="Right"/>
+        </Grid>
+        
+        
+
+            
+            <!-- <Grid Grid.Column="1"> -->
+        <!--     <ItemsControl VerticalAlignment="Center"  -->
+        <!--                   ItemsSource="{Binding Round1}"> -->
+        <!--         <ItemsControl.ItemTemplate> -->
+        <!--             <DataTemplate> -->
+        <!--                 <views:MatchView DataContext="{Binding}"/> -->
+        <!--             </DataTemplate> -->
+        <!--         </ItemsControl.ItemTemplate> -->
+        <!--     </ItemsControl> -->
+        <!-- </Grid>      -->
+        <!--      -->
+        <!-- <Grid Grid.Column="3"> -->
+        <!--     <ItemsControl VerticalAlignment="Center" -->
+        <!--                   ItemsSource="{Binding Round2}"> -->
+        <!--         <ItemsControl.ItemTemplate> -->
+        <!--             <DataTemplate> -->
+        <!--                 <views:MatchView DataContext="{Binding}"/> -->
+        <!--             </DataTemplate> -->
+        <!--         </ItemsControl.ItemTemplate> -->
+        <!--     </ItemsControl> -->
+        <!-- </Grid> -->
+        <!--      -->
+        <!-- <Grid Grid.Column="5"> -->
+        <!--     <ItemsControl VerticalAlignment="Center" -->
+        <!--                   ItemsSource="{Binding Round3}"> -->
+        <!--         <ItemsControl.ItemTemplate> -->
+        <!--             <DataTemplate> -->
+        <!--                 <views:MatchView DataContext="{Binding}"/> -->
+        <!--             </DataTemplate> -->
+        <!--         </ItemsControl.ItemTemplate> -->
+        <!--     </ItemsControl> -->
+        <!-- </Grid> -->
+    </Grid>
+    </Border>
 </UserControl>

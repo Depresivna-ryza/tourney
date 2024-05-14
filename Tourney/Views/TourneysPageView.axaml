@@ -8,8 +8,16 @@
              x:Class="Tourney.Views.TourneysPageView"
              x:DataType="viewModels:TourneysPageViewModel">
     
-    <Grid ColumnDefinitions="*,*">
-        <ListBox Grid.Column="0" 
+    <Grid ColumnDefinitions="2,2*,20,5*,2" RowDefinitions="100,*">
+        <Grid Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0">
+            <TextBlock Text="Tourneys" 
+                       FontSize="30" 
+                       HorizontalAlignment="Center" 
+                       FontFamily="Roboto"
+                       Margin="10,10"/>
+        </Grid>
+        
+        <ListBox Grid.Column="1" Grid.Row="1"
                  ItemsSource="{Binding Tourneys}" 
                  SelectedItem="{Binding SelectedTourney}">
             <ListBox.ItemTemplate>
@@ -17,14 +25,42 @@
                     <TextBlock Text="{Binding Name}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>
-
-        <TextBlock Grid.Column="1" Text="{Binding SelectedTourney.Name}">
             
-        </TextBlock>
-         
+            <ListBox.Styles>
+                <Style Selector="ListBox">
+                    <Setter Property="Background" Value="#101010"/>
+                    <Setter Property="CornerRadius" Value="10"/>
+                    <Setter Property="Padding" Value="10"/>
+                </Style>
+
+                <Style Selector="ListBoxItem:pointerover /template/ ContentPresenter">
+                    <Setter Property="Foreground" Value="#a0a0a0"/>
+                    <Setter Property="Background" Value="#202020"/>
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+
+                <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background" Value="#303030"/>	
+                    <Setter Property="CornerRadius" Value="5"/>
+                        
+                    <Setter Property="Margin" Value="0,0,0,0"/>
+                </Style>
+
+                <Style Selector="ListBoxItem:pressed /template/ ContentPresenter">
+                    <Setter Property="Background" Value="#333333"/>	
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+                    
+                <Style Selector="ListBoxItem /template/ ContentPresenter">
+                    <Setter Property="Foreground" Value="#a0a0a0"/>
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </ListBox.Styles>
+        </ListBox>
         
-        <views:OngoingTourneyView Grid.Column="1" DataContext="{Binding SelectedTourney}"/>
+        <views:TourneyView Grid.Column="1" Grid.Row="1"
+                           DataContext="{Binding TourneyViewModel}"/>
     </Grid>
 
 </UserControl>

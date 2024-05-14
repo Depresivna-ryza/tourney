@@ -12,17 +12,16 @@ public partial class OngoingTourneyViewModel : ViewModelBase
     {
         _tourney = TourneyManager.Instance.CurrentTourney;
         TourneyManager.Instance.CurrentTourneyChanged += (sender, args) => UpdateTourney();
+        
     }
-
     
     public event EventHandler TourneyEnded;
-    public ObservableCollection<MatchViewModel> Round1 { get; set; } = new();
-    public ObservableCollection<MatchViewModel> Round2 { get; set; } = new();
-    public ObservableCollection<MatchViewModel> Round3 { get; set; } = new();
     
     [ObservableProperty] 
     private Models.Tourney _tourney;
     
+    [ObservableProperty]
+    private TourneyViewModel _tourneyViewModel = new(null);
     
     public void StartTourney()
     {
@@ -31,33 +30,8 @@ public partial class OngoingTourneyViewModel : ViewModelBase
     
     private void UpdateTourney()
     {
-        Round1.Clear();
-        Round2.Clear();
-        Round3.Clear();
-        
-        
-        if (TourneyManager.Instance.CurrentTourney is null)
-        {
-            return;
-        }
-        
         Tourney = TourneyManager.Instance.CurrentTourney;
-        
-        
-        foreach (var match in Tourney.Round1)
-        {
-            Round1.Add(new MatchViewModel(match));
-        }
-        
-        foreach (var match in Tourney.Round2)
-        {
-            Round2.Add(new MatchViewModel(match));
-        }
-        
-        foreach (var match in Tourney.Round3)
-        {
-            Round3.Add(new MatchViewModel(match));
-        }
+        TourneyViewModel.UpdateTourney(Tourney);
     }
     
     [RelayCommand]

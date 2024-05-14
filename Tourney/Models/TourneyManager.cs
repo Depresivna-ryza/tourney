@@ -15,14 +15,15 @@ public partial class TourneyManager : ObservableObject
     {
         Teams = new ObservableCollection<Team>
         {
-            new Team("Team 1", "Description 1", "#FF0000"),
-            new Team("Team 2", "Description 2", "#00FF00"),
-            new Team("Team 3", "Description 3", "#0000FF"),
-            new Team("Team 4", "Description 4", "#FFFF00"),
-            new Team("Team 5", "Description 5", "#FF00FF"),
-            new Team("Team 6", "Description 6", "#00FFFF"),
-            new Team("Team 7", "Description 7", "#FFFFFF"),
-            new Team("Team 8", "Description 8", "#000000")
+            new ("DanoDrevo", "rad odpisujem vodomery 🛁", "#FFFFFF"),
+            new ("Zapalkari", "🤙🤙", "#FF0000"),
+            new ("zebrak", "lorem ipsum", "#00FF00"),
+            new ("lgbt", "he/he 🤡", "#0000FF"),
+            new ("Vagosi", "<3 suche lepidlo", "#FFFF00"),
+            new ("ಠ_ಠ", "👀", "#FF00FF"),
+            new ("Dong", "homosex ", "#00FFFF"),
+            new ("Brezno", "🤢🤮🤮🤮🤢", "#000000"),
+            new ("Peter1v9", "copium", "#FFFFFF"),
         };
     }
     private static TourneyManager? _instance;

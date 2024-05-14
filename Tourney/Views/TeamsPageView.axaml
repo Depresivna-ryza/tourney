@@ -7,29 +7,85 @@
              x:Class="Tourney.Views.TeamsPageView"
              x:DataType="viewModels:TeamsPageViewModel">
 
-    <Grid ColumnDefinitions="*,*" RowDefinitions="50,*">
+    <Grid ColumnDefinitions="2,2*,20,3*,2" RowDefinitions="100,*">
         
-        <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0">
-            <TextBlock Text="Teams" FontSize="36" HorizontalAlignment="Center"/>
-        </Grid>        
+        <Grid Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0">
+            <TextBlock Text="Teams" 
+                       FontSize="30" 
+                       HorizontalAlignment="Center" 
+                       FontFamily="Roboto"
+                       Margin="10,10"/>
+        </Grid>  
         
-        <Grid Grid.Column="0" Grid.Row="1">
-            <ListBox 
-                Background="#1e1e1e"
+        <Grid Grid.Column="1" Grid.Row="1">
+            <ListBox
                 ItemsSource="{Binding Teams} " SelectedItem="{Binding SelectedTeam}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Name}" FontSize="15" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
+                
+                <ListBox.Styles>
+                    <Style Selector="ListBox">
+                        <Setter Property="Background" Value="#101010"/>
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="Padding" Value="10"/>
+                    </Style>
+
+                    <Style Selector="ListBoxItem:pointerover /template/ ContentPresenter">
+                        <Setter Property="Foreground" Value="#a0a0a0"/>
+                        <Setter Property="Background" Value="#202020"/>
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+
+                    <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Background" Value="#303030"/>	
+                        <Setter Property="CornerRadius" Value="5"/>
+                        
+                        <Setter Property="Margin" Value="0,0,0,0"/>
+                    </Style>
+
+                    <Style Selector="ListBoxItem:pressed /template/ ContentPresenter">
+                        <Setter Property="Background" Value="#333333"/>	
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                    
+                    <Style Selector="ListBoxItem /template/ ContentPresenter">
+                        <Setter Property="Foreground" Value="#a0a0a0"/>
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </ListBox.Styles>
             </ListBox>
         </Grid>     
         
-        <Grid Grid.Column="1" Grid.Row="1">
-            <StackPanel>
-                <TextBlock Text="{Binding SelectedTeam.Name}" FontSize="20" />
-                <TextBlock Text="{Binding SelectedTeam.Description}" FontSize="12" />
-            </StackPanel>
+        <Grid Grid.Column="3" Grid.Row="1">
+            <Border>
+                <StackPanel>
+                    <TextBlock Text="Team Name" FontSize="10" Foreground="#808080" Margin="10,5"/>
+                    <TextBlock Text="{Binding SelectedTeam.Name}" FontSize="20" Margin="10,5"/>
+                    
+                    <Border Height="1" Background="#404040" Margin="7,15,30,15" CornerRadius="5"/>
+
+                    <TextBlock Text="Description" FontSize="10" Foreground="#808080" Margin="10,5"/>
+                    <TextBlock Text="{Binding SelectedTeam.Description}" FontSize="15" Margin="10,5"/>
+                    
+                    <Border Height="1" Background="#404040" Margin="7,15,30,15" CornerRadius="5"/>
+                    
+                    <TextBlock Text="Members" FontSize="10" Foreground="#808080" Margin="10,5"/>
+                    <TextBlock Text="tbd" FontSize="15" Margin="10,5"/>
+                    
+                </StackPanel>   
+                                
+                <Border.Styles>
+                    <Style Selector="Border">
+                        <Setter Property="Background" Value="#101010"/>
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="Padding" Value="15"/>
+                    </Style>
+                </Border.Styles>
+            </Border>
         </Grid>
         
     </Grid>

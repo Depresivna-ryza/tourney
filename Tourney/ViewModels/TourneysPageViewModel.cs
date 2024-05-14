@@ -1,3 +1,4 @@
+using System;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Tourney.Models;
@@ -10,10 +11,18 @@ public partial class TourneysPageViewModel : ViewModelBase
     {
         Tourneys = TourneyManager.Instance.Tourneys;
         _selectedTourney = Tourneys.Count > 0 ? Tourneys[0] : null;
-        _ongoingTourneyViewModel = new OngoingTourneyViewModel();
         
-        // subscribe to model changes
         TourneyManager.Instance.Tourneys.CollectionChanged += (sender, args) => UpdateTourneys();
+    }
+    
+    partial void OnSelectedTourneyChanged (Models.Tourney? oldValue, Models.Tourney? newValue)
+    {
+        UpdateSelectedTourney();
+    }
+    
+    private void UpdateSelectedTourney()
+    {
+        TourneyViewModel.UpdateTourney(SelectedTourney);
     }
 
     private void UpdateTourneys()
@@ -25,8 +34,8 @@ public partial class TourneysPageViewModel : ViewModelBase
     
     [ObservableProperty]
     private Models.Tourney? _selectedTourney;
-    
-    [ObservableProperty]
-    private OngoingTourneyViewModel _ongoingTourneyViewModel;
-    
+
+    [ObservableProperty] 
+    private TourneyViewModel _tourneyViewModel = new TourneyViewModel(null);
+
 }

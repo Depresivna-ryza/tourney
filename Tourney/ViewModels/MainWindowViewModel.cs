@@ -9,7 +9,11 @@ namespace Tourney.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
-    [ObservableProperty] private bool _isPaneOpen = true;
+    [ObservableProperty] 
+    private bool _isPaneOpen = true;
+    
+    [ObservableProperty]
+    private string _title = "Tourney";
 
     [RelayCommand]
     private void TogglePaneOpen()
@@ -17,7 +21,7 @@ public partial class MainWindowViewModel : ViewModelBase
         IsPaneOpen = !IsPaneOpen;
         ToggleTextLabels();
     }
-
+    
     private void ToggleTextLabels()
     {
         if (IsPaneOpen)
@@ -34,7 +38,6 @@ public partial class MainWindowViewModel : ViewModelBase
                 item.Label = "";
             }
         }
-        
         // trigger event collection changed
         PageItems = new ObservableCollection<MainPageItem>(PageItems);
     }

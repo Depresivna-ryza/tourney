@@ -29,12 +29,35 @@ public partial class MatchViewModel : ViewModelBase
     [ObservableProperty]
     private bool _finished;
     
+    [ObservableProperty]
+    private bool _winner1;
+    
+    [ObservableProperty]
+    private bool _winner2;
+    
+    
+    [ObservableProperty]
+    private string _color1 = "#cccccc";
+    
+    [ObservableProperty]
+    private string _color2 = "#cccccc";
+    
+    
     public void UpdateMatch()
     {
         NotStarted = Match.State == Match.MatchState.NotStarted;
         ReadyToStart = Match.State == Match.MatchState.ReadyToStart;
         InProgress = Match.State == Match.MatchState.InProgress;
-        Finished = Match.State == Match.MatchState.Finished;
+        
+        if (Match.State == Match.MatchState.Finished)
+        {
+            Finished = true;
+            Winner1 = Match.Winner == Match.Team1;
+            Winner2 = Match.Winner == Match.Team2;
+            
+            Color1 = Winner1 ? "White" : "#888888";
+            Color2 = Winner2 ? "White" : "#888888";
+        }
     }
 
     [RelayCommand]
