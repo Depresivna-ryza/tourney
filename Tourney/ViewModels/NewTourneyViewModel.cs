@@ -53,6 +53,9 @@ public partial class NewTourneyViewModel : ViewModelBase
     private void StartTourney()
     {
         TourneyManager.Instance.StartTourney(TourneyName, SelectedTeams);
+        TourneyName = "";
+        SelectedTeams.Clear();
+        
         
         OnTourneyStarted();
     }

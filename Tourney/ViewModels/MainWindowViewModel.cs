@@ -48,7 +48,7 @@ public partial class MainWindowViewModel : ViewModelBase
         new MainPageItem("Teams", new TeamsPageViewModel(), "TeamIcon"),
         new MainPageItem("Tourneys", new TourneysPageViewModel(), "TourneyIcon"),
         new MainPageItem("Add Team", new AddTeamPageViewModel(), "AddTeamIcon"),
-        new MainPageItem("New Tourney", new TourneyPageViewModel(), "TourneyIcon"),
+        new MainPageItem("New Tourney", new TourneyPageViewModel(), "AddIcon"),
     ];
 
     [ObservableProperty] 
@@ -58,6 +58,7 @@ public partial class MainWindowViewModel : ViewModelBase
     public MainWindowViewModel()
     {
         CurrentPageItem = PageItems[0];
+        TogglePaneOpen();   
     }
 }
 

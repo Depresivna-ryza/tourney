@@ -1,3 +1,4 @@
+using System;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Tourney.Models;
@@ -23,6 +24,9 @@ public partial class Match : ObservableObject
 
     [ObservableProperty] 
     private Team? _winner = null;
+
+    [ObservableProperty] 
+    private TimeSpan _duration = TimeSpan.Zero;
     
     [ObservableProperty]
     private Match? _nextMatch = null;
@@ -67,10 +71,12 @@ public partial class Match : ObservableObject
         State = MatchState.InProgress;
     }
     
-    public void EndMatch(bool slot1)
+    public void EndMatch(bool slot1, TimeSpan duration)
     {
         Winner = slot1 ? Team1 : Team2;
         State = MatchState.Finished;
+        Duration = duration;
+        
         if (NextMatch != null)
         {
             NextMatch.AddTeam(Winner!, NextMatchSlot1);

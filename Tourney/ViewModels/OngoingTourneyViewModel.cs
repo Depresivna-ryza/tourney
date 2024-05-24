@@ -19,6 +19,9 @@ public partial class OngoingTourneyViewModel : ViewModelBase
     
     [ObservableProperty] 
     private Models.Tourney _tourney;
+
+    [ObservableProperty] 
+    private bool _isFinished;
     
     [ObservableProperty]
     private TourneyViewModel _tourneyViewModel = new(null);
@@ -32,6 +35,12 @@ public partial class OngoingTourneyViewModel : ViewModelBase
     {
         Tourney = TourneyManager.Instance.CurrentTourney;
         TourneyViewModel.UpdateTourney(Tourney);
+
+
+        if (Tourney != null) 
+        {
+            IsFinished = Tourney.Round3[0].Winner != null;
+        }
     }
     
     [RelayCommand]

@@ -125,7 +125,6 @@
             <TextBox Text="{Binding TourneyName}" 
                      FontSize="20" 
                      Background="Black"
-                     SelectionBrush="Red"
                      Margin="10,10"
                      VerticalAlignment="Top"
                      CornerRadius="10"

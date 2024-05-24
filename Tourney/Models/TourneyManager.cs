@@ -73,8 +73,7 @@ public partial class TourneyManager : ObservableObject
         return true;
     }
 
-
-
+    
     public bool CanAddTeam(string name)
     {
         return Teams.All(team => team.Name != name);

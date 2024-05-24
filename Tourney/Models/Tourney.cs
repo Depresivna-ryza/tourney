@@ -16,6 +16,8 @@ public partial class Tourney : ObservableObject
     [ObservableProperty]
     private Team? _winner;
     
+    [ObservableProperty]
+    private DateTime _startDate = DateTime.Now;
     public ObservableCollection<Team> Teams { get; set; }
     public ObservableCollection<Match> Round1 { get; set; }
     public ObservableCollection<Match> Round2 { get; set; }
@@ -25,12 +27,12 @@ public partial class Tourney : ObservableObject
     {
         Name = name;
         Teams = new ObservableCollection<Team>();
-        
+
         if (teams.Count() != 8)
         {
             throw new ArgumentException("Exactly 8 teams are required for a tournament", nameof(teams));
         }
-        
+
         foreach (var team in teams)
         {
             Teams.Add(team);

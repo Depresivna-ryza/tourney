@@ -41,4 +41,14 @@ public partial class TeamsPageViewModel : ViewModelBase
         NewTeamName = "";
         NewTeamDescription = "";
     }
+    
+    [RelayCommand]
+    private void RemoveTeam()
+    {
+        if (SelectedTeam == null)
+            return;
+        
+        TourneyManager.Instance.Teams.Remove(SelectedTeam);
+        SelectedTeam = Teams.Count > 0 ? Teams[0] : null;
+    }
 }

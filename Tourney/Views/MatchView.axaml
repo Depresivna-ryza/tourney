@@ -28,142 +28,122 @@
                 </Style>
             </UserControl.Styles>
             
-            <Border Background="#101010" 
-                    CornerRadius="20"
-                    BorderBrush="#aaaaaa"
-                    BorderThickness="1"
-                    Width="300"
-                    Height="100"
-                    >
-                
-            <Grid ColumnDefinitions="150,150" RowDefinitions="0,60,40"  >
-                
-                <Grid Grid.Row="1" Grid.Column="0">
-                    <TextBlock Text="{Binding Match.Team1.Name}"
-                               Foreground="{Binding Color1}"
+    
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid Height="20">
+                    <TextBlock Text="{Binding ElapsedTime, StringFormat={}{0:mm\\:ss}}"
+                               IsVisible="{Binding InProgress}"
                                HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Margin="0,0,0,0"   
-                               FontSize="20"/>
-                </Grid>               
+                               VerticalAlignment="Bottom"/>
                 
-                <Grid Grid.Row="1" Grid.Column="1">
-                    <TextBlock Text="{Binding Match.Team2.Name}"
-                               Foreground="{Binding Color2}"
+                    <TextBlock Text="{Binding Match.Duration, StringFormat={}{0:mm\\:ss}}"
+                               IsVisible="{Binding Finished}"
+                               Foreground="#808080"
                                HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Margin="0,0,0,0"       
-                               FontSize="20"/>
+                               VerticalAlignment="Bottom"/>
                 </Grid>
                 
-                <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-                    <Border Height="1" Background="#404040" Margin="20, 0" VerticalAlignment="Bottom"/>
-                </Grid>
-                
-                
-                <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-                    <Border Background="Transparent" Height="32" Width="32" CornerRadius="20" Margin="20,0">
-                        
-                        <TextBlock Text="vs" 
+    
+                <Border Background="#151515" 
+                        CornerRadius="8"
+                        BorderThickness="1"
+                        BorderBrush="#aaaaaa"
+                        Width="300"
+                        Height="100"
+                        BoxShadow="0 0 15 0 #303030"
+                >
+                    
+                <Grid ColumnDefinitions="150,150" RowDefinitions="0,60,40"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid Grid.Row="1" Grid.Column="0">
+                        <TextBlock Text="{Binding Match.Team1.Name}"
+                                   Foreground="{Binding Color1}"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
-                                   FontWeight="Heavy"
+                                   Margin="0,0,0,0"   
                                    FontSize="20"/>
-                    </Border>
+                    </Grid>               
+                    
+                    <Grid Grid.Row="1" Grid.Column="1">
+                        <TextBlock Text="{Binding Match.Team2.Name}"
+                                   Foreground="{Binding Color2}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,0,0"       
+                                   FontSize="20"/>
+                    </Grid>
+                    
+                    <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Border Height="1" Background="#404040" Margin="80, 0" VerticalAlignment="Bottom"/>
+                    </Grid>
+                    
+                    
+                    <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                        
+                        <Border Background="Transparent" Height="32" Width="32" CornerRadius="20" Margin="20,0">
+                        
+                            <TextBlock Text="vs"
+                                       Foreground = "{Binding VsColor}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Heavy"
+                                       FontSize="20"/>
+                        </Border>
+                    </Grid>
+                    
+                    <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Button Content="Start"
+                                IsEnabled="False"
+                                IsVisible="{Binding NotStarted}"
+                                HorizontalAlignment="Center"
+                                />
+                    </Grid>
+                    
+                    <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Button Content="Start"
+                                HorizontalAlignment="Center"
+                                IsVisible="{Binding ReadyToStart}"
+                                Command="{Binding StartMatchCommand}"
+                                />
+                    </Grid>
+                    
+                    
+                    <Grid Grid.Row="2" Grid.Column="0">
+                        <Button Content="Win"
+                                HorizontalAlignment="Center"
+                                IsVisible="{Binding InProgress}"
+                                Command="{Binding EndMatchCommand}"
+                                CommandParameter="{Binding Match.Team1}"
+                                />
+                    </Grid>
+                    
+                    <Grid Grid.Row="2" Grid.Column="1">
+                        <Button Content="Win"
+                                HorizontalAlignment="Center"
+                                IsVisible="{Binding InProgress}"
+                                Command="{Binding EndMatchCommand}"
+                                CommandParameter="{Binding Match.Team2}"
+                                />
+                    </Grid>
+                    
+                    
+                    <Grid Grid.Row="2" Grid.Column="0">
+                        <TextBlock Text="Winner"
+                                Padding="20,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                IsVisible="{Binding Winner1}"
+                        />
+                    </Grid>
+                    
+                    <Grid Grid.Row="2" Grid.Column="1">
+                        <TextBlock Text="Winner"
+                                   Padding="20,0"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   IsVisible="{Binding Winner2}"/>
+                    </Grid>
+                    
                 </Grid>
-                <!-- <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"> -->
-                <!--     <Button Content="Start" -->
-                <!--             IsEnabled="False" -->
-                <!--             Padding="20,0" -->
-                <!--             IsVisible="{Binding NotStarted}" -->
-                <!--             HorizontalAlignment="Center" -->
-                <!--             /> -->
-                <!-- </Grid>                -->
-                
-                
-                <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-                    <Button Content="Start"
-                            HorizontalAlignment="Center"
-                            IsVisible="{Binding ReadyToStart}"
-                            Command="{Binding StartMatchCommand}"
-                            />
-                </Grid>
-                
-                
-                <Grid Grid.Row="2" Grid.Column="0">
-                    <Button Content="Win"
-                            HorizontalAlignment="Center"
-                            IsVisible="{Binding InProgress}"
-                            Command="{Binding EndMatchCommand}"
-                            CommandParameter="{Binding Match.Team1}"
-                            />
-                </Grid>
-                
-                <Grid Grid.Row="2" Grid.Column="1">
-                    <Button Content="Win"
-                            HorizontalAlignment="Center"
-                            IsVisible="{Binding InProgress}"
-                            Command="{Binding EndMatchCommand}"
-                            CommandParameter="{Binding Match.Team2}"
-                            />
-                </Grid>
-                
-                
-                <Grid Grid.Row="2" Grid.Column="0">
-                    <TextBlock Text="Winner"
-                            Padding="20,0"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            IsVisible="{Binding Winner1}"
-                    />
-                </Grid>
-                
-                <Grid Grid.Row="2" Grid.Column="1">
-                    <TextBlock Text="Winner"
-                               Padding="20,0"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               IsVisible="{Binding Winner2}"/>
-                </Grid>
-                
-            </Grid>
-            </Border>
+                </Border>
+            </StackPanel>
 </UserControl>
-                
-                
-                
-            <!-- <Grid ColumnDefinitions="100,100" RowDefinitions="50,50"> -->
-                <!--         <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Match.Team1.Name}"/> -->
-                <!--         <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Match.Team1.Name}"/> -->
-                <!--         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Match.Team2.Name}"/> -->
-                <!--          -->
-                <!--         <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  -->
-                <!--                 Content="Start"  -->
-                <!--                 IsEnabled="False" -->
-                <!--                 IsVisible="{Binding NotStarted}"/> -->
-                <!-- -->
-                <!--         <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  -->
-                <!--                 Content="Start"  -->
-                <!--                 IsEnabled="True" -->
-                <!--                 IsVisible="{Binding ReadyToStart}" -->
-                <!--                 Command="{Binding StartMatchCommand}"/> -->
-                <!--          -->
-                <!--          -->
-                <!--         <Button Grid.Row="1" Grid.Column="0"  -->
-                <!--                 Content="{Binding Match.Team1.Name}"  -->
-                <!--                 IsVisible="{Binding InProgress}"  -->
-                <!--                 Command="{Binding EndMatchCommand}"  -->
-                <!--                 CommandParameter="{Binding Match.Team1}"/> -->
-                <!--          -->
-                <!--         <Button Grid.Row="1" Grid.Column="1"  -->
-                <!--                 Content="{Binding  -->
-                <!--                 Match.Team2.Name}"  -->
-                <!--                 IsVisible="{Binding InProgress}"  -->
-                <!--                 Command="{Binding EndMatchCommand}"  -->
-                <!--                 CommandParameter="{Binding Match.Team2}"/> -->
-                <!--          -->
-                <!--          -->
-                <!--         <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  -->
-                <!--                    Text="{Binding Match.Winner.Name}"  -->
-                <!--                    IsVisible="{Binding Finished}"/> -->
-                <!-- </Grid> -->

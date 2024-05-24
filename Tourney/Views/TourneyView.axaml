@@ -45,7 +45,7 @@
         </Grid>
         
         <Grid Grid.Column="7" Grid.Row="0" Grid.RowSpan="3">
-            <PathIcon Data="{StaticResource TrophyIcon}" Width="150" Height="150" Foreground="{Binding TrophyColor}" VerticalAlignment="Bottom" />
+            <PathIcon Data="{StaticResource TrophyIcon}" Width="100" Height="100" Foreground="{Binding TrophyColor}" VerticalAlignment="Bottom" />
         </Grid>
         
         
@@ -54,52 +54,52 @@
         <!-- add grid lines -->
         
         <Grid Grid.Column="2" Grid.Row="0" Grid.RowSpan="2">
-            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#202020" VerticalAlignment="Center"/>
+            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#404040" VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Column="2" Grid.Row="2" Grid.RowSpan="2">
-            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#202020" VerticalAlignment="Center"/>
+            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#404040" VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Column="2" Grid.Row="4" Grid.RowSpan="2">
-            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#202020" VerticalAlignment="Center"/>
+            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#404040" VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Column="2" Grid.Row="6" Grid.RowSpan="2">
-            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#202020" VerticalAlignment="Center"/>
+            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#404040" VerticalAlignment="Center"/>
         </Grid>
         
         
         
         <Grid Grid.Column="3" Grid.Row="1" Grid.RowSpan="2">
-            <Border Height="5" CornerRadius="5" Margin="0,0,10,0" Background="#202020" />
+            <Border Height="5" CornerRadius="5" Margin="0,0,10,0" Background="#404040" />
         </Grid>        
         <Grid Grid.Column="3" Grid.Row="5" Grid.RowSpan="2">
-            <Border Height="5" CornerRadius="5" Margin="0,0,10,0" Background="#202020" />
+            <Border Height="5" CornerRadius="5" Margin="0,0,10,0" Background="#404040" />
         </Grid>
 
         
         <Grid Grid.Column="2"  Grid.Row="1" Grid.RowSpan="2">
-            <Border Width="5" CornerRadius="5" Background="#202020" HorizontalAlignment="Right"/>
+            <Border Width="5" CornerRadius="5" Background="#404040" HorizontalAlignment="Right"/>
         </Grid>
         <Grid Grid.Column="2"  Grid.Row="5" Grid.RowSpan="2">
-            <Border Width="5" CornerRadius="5" Background="#202020" HorizontalAlignment="Right"/>
+            <Border Width="5" CornerRadius="5" Background="#404040" HorizontalAlignment="Right"/>
         </Grid>
 
         
         
         
         <Grid Grid.Column="5" Grid.Row="0" Grid.RowSpan="4">
-            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#202020" VerticalAlignment="Center"/>
+            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#404040" VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Column="5" Grid.Row="4" Grid.RowSpan="4">
-            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#202020" VerticalAlignment="Center"/>
+            <Border Height="5" CornerRadius="5" Margin="10,0,0,0" Background="#404040" VerticalAlignment="Center"/>
         </Grid>
         
         <Grid Grid.Column="6" Grid.Row="3" Grid.RowSpan="2">
-            <Border Height="5" CornerRadius="5" Margin="0,0,10,0" Background="#202020" />
+            <Border Height="5" CornerRadius="5" Margin="0,0,10,0" Background="#404040" />
         </Grid>
         
         
         <Grid Grid.Column="5"  Grid.Row="2" Grid.RowSpan="4">
-            <Border Width="5" CornerRadius="5" Background="#202020" HorizontalAlignment="Right"/>
+            <Border Width="5" CornerRadius="5" Background="#404040" HorizontalAlignment="Right"/>
         </Grid>
         
     </Grid>

@@ -1,4 +1,5 @@
 using System;
+using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Tourney.Models;
@@ -12,6 +13,8 @@ public partial class MatchViewModel : ViewModelBase
         Match = match;
         Match.PropertyChanged += (sender, args) => UpdateMatch();
         UpdateMatch();
+        
+        Timer.Tick += TimerTick;
     }
     
     [ObservableProperty]
@@ -42,6 +45,20 @@ public partial class MatchViewModel : ViewModelBase
     [ObservableProperty]
     private string _color2 = "#cccccc";
     
+    [ObservableProperty]
+    private string _vsColor = "#666666";
+
+    [ObservableProperty] private DispatcherTimer _timer =
+        new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
+
+    [ObservableProperty] 
+    private TimeSpan _elapsedTime = TimeSpan.Zero;
+    
+    private void TimerTick(object? sender, EventArgs e)
+    {
+        ElapsedTime = ElapsedTime.Add(TimeSpan.FromSeconds(1));
+    }
+    
     
     public void UpdateMatch()
     {
@@ -55,8 +72,17 @@ public partial class MatchViewModel : ViewModelBase
             Winner1 = Match.Winner == Match.Team1;
             Winner2 = Match.Winner == Match.Team2;
             
-            Color1 = Winner1 ? "White" : "#888888";
-            Color2 = Winner2 ? "White" : "#888888";
+            Color1 = Winner1 ? "White" : "#666666";
+            Color2 = Winner2 ? "White" : "#666666";
+            
+            VsColor = "#666666";
+        }
+        
+        if (Match.State == Match.MatchState.InProgress)
+        {
+            Color1 = "White";
+            Color2 = "White";
+            VsColor = "White";
         }
     }
 
@@ -66,6 +92,9 @@ public partial class MatchViewModel : ViewModelBase
         if (Match.State == Match.MatchState.ReadyToStart)
         {
             Match.StartMatch();
+            
+            Timer.Start();
+            ElapsedTime = TimeSpan.Zero;
         }
     }
 
@@ -74,7 +103,8 @@ public partial class MatchViewModel : ViewModelBase
     {
         if (Match.State == Match.MatchState.InProgress)
         {
-            Match.EndMatch(winner == Match.Team1);
+            Timer.Stop();
+            Match.EndMatch(winner == Match.Team1, ElapsedTime);
         }
     }
 }

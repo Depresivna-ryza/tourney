@@ -60,7 +60,7 @@ public partial class TourneyViewModel : ViewModelBase
             Round3.Add(new MatchViewModel(match));
         }
         
-        TrophyColor = Tourney.Winner != null ? "White" : "#202020";
+        TrophyColor = Tourney.Winner != null ? "White" : "#404040";
         WinnerName = Tourney.Winner?.Name ?? "";
     }
 
