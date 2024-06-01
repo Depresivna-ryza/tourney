@@ -43,21 +43,36 @@
         </Grid>
         
         <Grid Grid.Column="1" Grid.Row="2">
-            <ListBox 
-                     ItemsSource="{Binding AllTeams}" 
+            <Border Background="#101010" CornerRadius="10" Padding="10">
+            <Grid RowDefinitions="40,*" Background="#101010">
+                
+            <TextBox Text="{Binding TeamFilter}" 
+                     Watermark="Search..."
+                     Margin="10" Background="Transparent" CornerRadius="40" />
+            
+            <ListBox Grid.Row="1" 
+                     ItemsSource="{Binding FilteredTeams}" 
                      SelectionMode="Multiple, Toggle" 
-                     SelectedItems="{Binding SelectedTeams}">
+                     SelectedItems="{Binding SelectedTeams, Mode=TwoWay}"
+                     Margin="0,0,0,10">
                 
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Name}" FontSize="15"/>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <Svg Path="{Binding IconPath}"
+                                 Width="20"
+                                 Height="20"
+                                 Css="{Binding Color, StringFormat='.Black {{ fill: {0}; }}'}"
+                            />
+                            <TextBlock Text="{Binding Name}" Padding="0, 5,0,0" FontSize="15"/>
+                        </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             
                 <ListBox.Styles>
                     <Style Selector="ListBox">
-                        <Setter Property="Background" Value="#101010"/>
-                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <!-- <Setter Property="CornerRadius" Value="10"/> -->
                         <Setter Property="Padding" Value="10"/>
                     </Style>
 
@@ -82,6 +97,8 @@
                     </Style>
                 </ListBox.Styles>
             </ListBox>
+            </Grid>
+            </Border>
         </Grid>
 
 
@@ -91,7 +108,7 @@
 
         <Grid Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2">
             <ScrollViewer>
-            <ItemsControl ItemsSource="{Binding SelectedTeams}">
+            <ItemsControl ItemsSource="{Binding SelectedTeamsFiltered}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Name}" 

@@ -15,7 +15,7 @@ public partial class TourneysPageViewModel : ViewModelBase
         TourneyManager.Instance.Tourneys.CollectionChanged += (sender, args) => UpdateTourneys();
     }
     
-    partial void OnSelectedTourneyChanged (Models.Tourney? oldValue, Models.Tourney? newValue)
+    partial void OnSelectedTourneyChanged(AbstractTourney? oldValue, AbstractTourney? newValue)
     {
         UpdateSelectedTourney();
     }
@@ -29,8 +29,9 @@ public partial class TourneysPageViewModel : ViewModelBase
         }
         
         Enabled = true;
-        TourneyViewModel = new TourneyViewModel(SelectedTourney);
-        TourneyViewModel.UpdateTourney(SelectedTourney);
+        
+        TourneyViewModel = new TourneyViewModel( SelectedTourney as EliminationTourney);
+        // TourneyViewModel.UpdateTourney(SelectedTourney);
     }
 
     private void UpdateTourneys()
@@ -38,10 +39,10 @@ public partial class TourneysPageViewModel : ViewModelBase
         Tourneys = TourneyManager.Instance.Tourneys;
     }
 
-    public ObservableCollection<Models.Tourney> Tourneys { get; set; }
+    public ObservableCollection<AbstractTourney> Tourneys { get; set; }
     
     [ObservableProperty]
-    private Models.Tourney? _selectedTourney;
+    private AbstractTourney? _selectedTourney;
 
     [ObservableProperty] 
     private TourneyViewModel? _tourneyViewModel = null;    

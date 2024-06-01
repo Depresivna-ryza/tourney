@@ -12,13 +12,12 @@ public partial class OngoingTourneyViewModel : ViewModelBase
     {
         _tourney = TourneyManager.Instance.CurrentTourney;
         TourneyManager.Instance.CurrentTourneyChanged += (sender, args) => UpdateTourney();
-        
     }
     
     public event EventHandler TourneyEnded;
     
     [ObservableProperty] 
-    private Models.Tourney _tourney;
+    private AbstractTourney _tourney;
 
     [ObservableProperty] 
     private bool _isFinished;
@@ -34,12 +33,12 @@ public partial class OngoingTourneyViewModel : ViewModelBase
     private void UpdateTourney()
     {
         Tourney = TourneyManager.Instance.CurrentTourney;
-        TourneyViewModel.UpdateTourney(Tourney);
+        TourneyViewModel.UpdateTourney(Tourney as EliminationTourney);
 
 
         if (Tourney != null) 
         {
-            IsFinished = Tourney.Round3[0].Winner != null;
+            IsFinished = Tourney.Winner != null;
         }
     }
     

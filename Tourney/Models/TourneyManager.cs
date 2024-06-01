@@ -36,15 +36,15 @@ public partial class TourneyManager : ObservableObject
     public ObservableCollection<Team> Teams { get; }
     
     [ObservableProperty]
-    private Tourney? _currentTourney;
+    private AbstractTourney? _currentTourney;
     
-    public ObservableCollection<Tourney> Tourneys { get; } = new();
+    public ObservableCollection<AbstractTourney> Tourneys { get; } = new();
     
     public event EventHandler CurrentTourneyChanged;
     
-    public void StartTourney(string name, IEnumerable<Team> teams)
+    public void StartEliminationTourney(string name, IEnumerable<Team> teams)
     {
-        CurrentTourney = new Tourney(name, teams);
+        CurrentTourney = new EliminationTourney(name, teams);
         CurrentTourney.PropertyChanged += (sender, args) => CurrentTourneyChanged?.Invoke(this, EventArgs.Empty);
     }
     
@@ -61,12 +61,11 @@ public partial class TourneyManager : ObservableObject
             return false;
         }
         
-        if (CurrentTourney.Round3.Count == 0 || CurrentTourney.Round3[0].Winner == null)
+        if (CurrentTourney.Winner == null)
         {
             return false;
         }
         
-        CurrentTourney.Winner = CurrentTourney.Round3[0].Winner;
         Tourneys.Add(CurrentTourney);
         CurrentTourney = null;
         CurrentTourneyChanged?.Invoke(this, EventArgs.Empty);

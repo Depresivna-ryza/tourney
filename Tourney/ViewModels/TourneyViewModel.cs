@@ -4,11 +4,12 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using Tourney.Models;
 
 namespace Tourney.ViewModels;
-
+// MatchView, IsFirst, IsLast, DisplayEven, DisplayOdd
+using MatchTuple = Tuple<MatchViewModel, bool , bool, bool, bool>;
 public partial class TourneyViewModel : ViewModelBase
 {
 
-    public TourneyViewModel(Models.Tourney? tourney)
+    public TourneyViewModel(EliminationTourney? tourney)
     {
         UpdateTourney(tourney);
         if (tourney != null)
@@ -16,13 +17,12 @@ public partial class TourneyViewModel : ViewModelBase
             tourney.PropertyChanged += (sender, args) => UpdateTourney(tourney);
         }
     }
+    
 
-    public ObservableCollection<MatchViewModel> Round1 { get; set; } = new();
-    public ObservableCollection<MatchViewModel> Round2 { get; set; } = new();
-    public ObservableCollection<MatchViewModel> Round3 { get; set; } = new();
+    public ObservableCollection<ObservableCollection<MatchTuple>> Rounds { get; set; } = new();
     
     [ObservableProperty] 
-    private Models.Tourney? _tourney;
+    private EliminationTourney? _tourney;
     
     [ObservableProperty]
     private string _trophyColor = "#202020";
@@ -30,7 +30,7 @@ public partial class TourneyViewModel : ViewModelBase
     [ObservableProperty]
     private string _winnerName = "";
     
-    public void UpdateTourney(Models.Tourney? newTourney)
+    public void UpdateTourney(EliminationTourney? newTourney)
     {
         
         if (newTourney == null)
@@ -38,29 +38,28 @@ public partial class TourneyViewModel : ViewModelBase
             return;
         }
         
-        Round1.Clear();
-        Round2.Clear();
-        Round3.Clear();
+        Rounds.Clear();
 
         Tourney = newTourney;
         
-        
-        foreach (var match in Tourney.Round1)
+        for (int i = 0; i < Tourney.Rounds.Count; i++)
         {
-            Round1.Add(new MatchViewModel(match));
+            var round = Tourney.Rounds[i];
+            var roundViewModel = new ObservableCollection<MatchTuple>();
+            for (int j = 0; j < round.Count; j++)
+            {
+                var match = round[j];
+                
+                bool isFirst = i == 0;
+                bool isLast = i == Tourney.Rounds.Count - 1;
+                bool displayEven = j % 2 == 0 && !isLast;
+                bool displayOdd = j % 2 == 1 && !isLast;
+                roundViewModel.Add(new MatchTuple(new MatchViewModel(match), isFirst, isLast, displayEven, displayOdd));
+            }
+            Rounds.Add(roundViewModel);
         }
         
-        foreach (var match in Tourney.Round2)
-        {
-            Round2.Add(new MatchViewModel(match));
-        }
-        
-        foreach (var match in Tourney.Round3)
-        {
-            Round3.Add(new MatchViewModel(match));
-        }
-        
-        TrophyColor = Tourney.Winner != null ? "White" : "#404040";
+        TrophyColor = Tourney.Winner != null ? "White" : "#202020";
         WinnerName = Tourney.Winner?.Name ?? "";
     }
 

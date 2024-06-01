@@ -1,18 +1,19 @@
 using System;
+using System.Text.RegularExpressions;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Tourney.Models;
 
-public partial class Match : ObservableObject
+public partial class EliminationMatch : ObservableObject
 {
-    public Match(Match nextMatch, bool nextMatchSlot1)
+    public EliminationMatch(EliminationMatch nextEliminationMatch, bool nextMatchSlot1)
     {
-        NextMatch = nextMatch;
+        NextEliminationMatch = nextEliminationMatch;
         NextMatchSlot1 = nextMatchSlot1;
         IsFinal = false;
     }
     
-    public Match()
+    public EliminationMatch()
     {
         IsFinal = true;
     }
@@ -29,7 +30,7 @@ public partial class Match : ObservableObject
     private TimeSpan _duration = TimeSpan.Zero;
     
     [ObservableProperty]
-    private Match? _nextMatch = null;
+    private EliminationMatch? _nextEliminationMatch = null;
     [ObservableProperty]
     private bool _nextMatchSlot1;
 
@@ -65,7 +66,20 @@ public partial class Match : ObservableObject
             State = MatchState.ReadyToStart;
         }
     }
+
+    public void StartWithoutOpponent()
+    {
+        State = MatchState.Finished;
+        Duration = TimeSpan.Zero;
+        Winner = Team1 ?? Team2;
+        
+        if (NextEliminationMatch != null)
+        {
+            NextEliminationMatch.AddTeam(Winner!, NextMatchSlot1);
+        }
+    }
     
+
     public void StartMatch()
     {
         State = MatchState.InProgress;
@@ -77,9 +91,9 @@ public partial class Match : ObservableObject
         State = MatchState.Finished;
         Duration = duration;
         
-        if (NextMatch != null)
+        if (NextEliminationMatch != null)
         {
-            NextMatch.AddTeam(Winner!, NextMatchSlot1);
+            NextEliminationMatch.AddTeam(Winner!, NextMatchSlot1);
         }
     }
 

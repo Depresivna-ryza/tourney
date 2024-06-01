@@ -80,7 +80,7 @@
         </Grid>     
         
         <Grid Grid.Column="3" Grid.Row="1">
-            <Border>
+            <Border IsVisible="{Binding IsSelectedTeam}">
                 <Grid RowDefinitions="*, 70">
                 
                     <StackPanel Grid.Row="0">
@@ -94,8 +94,17 @@
                         
                         <Border Height="1" Background="#404040" Margin="7,15,30,15" CornerRadius="5"/>
                         
-                        <TextBlock Text="Members" FontSize="10" Foreground="#808080" Margin="10,5"/>
-                        <TextBlock Text="tbd" FontSize="15" Margin="10,5"/>
+                        <!-- <TextBlock Text="Members" FontSize="10" Foreground="#808080" Margin="10,5"/> -->
+                        <!-- <TextBlock Text="tbd" FontSize="15" Margin="10,5"/> -->
+                        
+                        <TextBlock Text="Icon" FontSize="10" Foreground="#808080" Margin="10,5"/>
+                        <Svg Path="{Binding SelectedTeam.IconPath}"
+                                Width="60"
+                                Height="60"
+                                Css="{Binding SelectedTeam.Color, StringFormat='.Black {{ fill: {0}; }}'}"
+                                HorizontalAlignment="Left"
+                                Margin="10"
+                             />
                         
                     </StackPanel>
                     

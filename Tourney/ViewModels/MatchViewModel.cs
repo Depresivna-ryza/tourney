@@ -8,17 +8,17 @@ namespace Tourney.ViewModels;
 
 public partial class MatchViewModel : ViewModelBase
 {
-    public MatchViewModel(Match match)
+    public MatchViewModel(EliminationMatch eliminationMatch)
     {
-        Match = match;
-        Match.PropertyChanged += (sender, args) => UpdateMatch();
+        EliminationMatch = eliminationMatch;
+        EliminationMatch.PropertyChanged += (sender, args) => UpdateMatch();
         UpdateMatch();
         
         Timer.Tick += TimerTick;
     }
     
     [ObservableProperty]
-    private Match _match;
+    private EliminationMatch _eliminationMatch;
 
     [ObservableProperty] 
     private bool _notStarted;
@@ -47,6 +47,12 @@ public partial class MatchViewModel : ViewModelBase
     
     [ObservableProperty]
     private string _vsColor = "#666666";
+    
+    [ObservableProperty]
+    private string _logoColor1 = "#cccccc";
+    
+    [ObservableProperty]
+    private string _logoColor2 = "#cccccc";
 
     [ObservableProperty] private DispatcherTimer _timer =
         new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
@@ -62,36 +68,40 @@ public partial class MatchViewModel : ViewModelBase
     
     public void UpdateMatch()
     {
-        NotStarted = Match.State == Match.MatchState.NotStarted;
-        ReadyToStart = Match.State == Match.MatchState.ReadyToStart;
-        InProgress = Match.State == Match.MatchState.InProgress;
+        NotStarted = EliminationMatch.State == EliminationMatch.MatchState.NotStarted;
+        ReadyToStart = EliminationMatch.State == EliminationMatch.MatchState.ReadyToStart;
+        InProgress = EliminationMatch.State == EliminationMatch.MatchState.InProgress;
         
-        if (Match.State == Match.MatchState.Finished)
+        if (EliminationMatch.State == EliminationMatch.MatchState.Finished)
         {
             Finished = true;
-            Winner1 = Match.Winner == Match.Team1;
-            Winner2 = Match.Winner == Match.Team2;
+            Winner1 = EliminationMatch.Winner == EliminationMatch.Team1;
+            Winner2 = EliminationMatch.Winner == EliminationMatch.Team2;
             
             Color1 = Winner1 ? "White" : "#666666";
             Color2 = Winner2 ? "White" : "#666666";
             
             VsColor = "#666666";
+            
         }
         
-        if (Match.State == Match.MatchState.InProgress)
+        if (EliminationMatch.State == EliminationMatch.MatchState.InProgress)
         {
             Color1 = "White";
             Color2 = "White";
             VsColor = "White";
         }
+        
+        LogoColor1 = Winner2 ? "#666666" : EliminationMatch.Team1?.Color ?? "#666666";
+        LogoColor2 = Winner1 ? "#666666" : EliminationMatch.Team2?.Color ?? "#666666";
     }
 
     [RelayCommand]
     private void StartMatch()
     {
-        if (Match.State == Match.MatchState.ReadyToStart)
+        if (EliminationMatch.State == EliminationMatch.MatchState.ReadyToStart)
         {
-            Match.StartMatch();
+            EliminationMatch.StartMatch();
             
             Timer.Start();
             ElapsedTime = TimeSpan.Zero;
@@ -101,10 +111,10 @@ public partial class MatchViewModel : ViewModelBase
     [RelayCommand]
     private void EndMatch(Team winner)
     {
-        if (Match.State == Match.MatchState.InProgress)
+        if (EliminationMatch.State == EliminationMatch.MatchState.InProgress)
         {
             Timer.Stop();
-            Match.EndMatch(winner == Match.Team1, ElapsedTime);
+            EliminationMatch.EndMatch(winner == EliminationMatch.Team1, ElapsedTime);
         }
     }
 }

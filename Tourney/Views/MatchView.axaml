@@ -36,7 +36,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Bottom"/>
                 
-                    <TextBlock Text="{Binding Match.Duration, StringFormat={}{0:mm\\:ss}}"
+                    <TextBlock Text="{Binding EliminationMatch.Duration, StringFormat={}{0:mm\\:ss}}"
                                IsVisible="{Binding Finished}"
                                Foreground="#808080"
                                HorizontalAlignment="Center"
@@ -48,28 +48,42 @@
                         CornerRadius="8"
                         BorderThickness="1"
                         BorderBrush="#aaaaaa"
-                        Width="300"
+                        Width="360"
                         Height="100"
                         BoxShadow="0 0 15 0 #303030"
                 >
                     
-                <Grid ColumnDefinitions="150,150" RowDefinitions="0,60,40"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid ColumnDefinitions="180,180" RowDefinitions="0,60,40" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Grid Grid.Row="1" Grid.Column="0">
-                        <TextBlock Text="{Binding Match.Team1.Name}"
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="5" Margin="0,0,15,0">
+                        <TextBlock Text="{Binding EliminationMatch.Team1.Name}"
                                    Foreground="{Binding Color1}"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
-                                   Margin="0,0,0,0"   
                                    FontSize="20"/>
+                        
+                        <Svg Path="{Binding EliminationMatch.Team1.IconPath}"
+                             Width="40"
+                             Height="40"
+                             Css="{Binding LogoColor1, StringFormat='.Black {{ fill: {0}; }}'}"
+                        />
+                        </StackPanel>
                     </Grid>               
                     
                     <Grid Grid.Row="1" Grid.Column="1">
-                        <TextBlock Text="{Binding Match.Team2.Name}"
-                                   Foreground="{Binding Color2}"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   Margin="0,0,0,0"       
-                                   FontSize="20"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Spacing="5" Margin="15,0,0,0">
+                            <Svg Path="{Binding EliminationMatch.Team2.IconPath}"
+                                 Width="40"
+                                 Height="40"
+                                 Css="{Binding LogoColor2, StringFormat='.Black {{ fill: {0}; }}'}"
+                            />
+                            <TextBlock Text="{Binding EliminationMatch.Team2.Name}"
+                                       Foreground="{Binding Color2}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="20"/>
+                        </StackPanel>
+                        
                     </Grid>
                     
                     <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
@@ -112,7 +126,7 @@
                                 HorizontalAlignment="Center"
                                 IsVisible="{Binding InProgress}"
                                 Command="{Binding EndMatchCommand}"
-                                CommandParameter="{Binding Match.Team1}"
+                                CommandParameter="{Binding EliminationMatch.Team1}"
                                 />
                     </Grid>
                     
@@ -121,7 +135,7 @@
                                 HorizontalAlignment="Center"
                                 IsVisible="{Binding InProgress}"
                                 Command="{Binding EndMatchCommand}"
-                                CommandParameter="{Binding Match.Team2}"
+                                CommandParameter="{Binding EliminationMatch.Team2}"
                                 />
                     </Grid>
                     

@@ -19,6 +19,9 @@ public partial class TeamsPageViewModel : ViewModelBase
     
     [ObservableProperty] 
     private Team? _selectedTeam;
+    
+    [ObservableProperty] 
+    private bool _isSelectedTeam;
     public void UpdateTeams()
     {
         Teams = TourneyManager.Instance.Teams;
@@ -49,6 +52,11 @@ public partial class TeamsPageViewModel : ViewModelBase
             return;
         
         TourneyManager.Instance.Teams.Remove(SelectedTeam);
-        SelectedTeam = Teams.Count > 0 ? Teams[0] : null;
+        SelectedTeam = null;
+    }
+
+    partial void OnSelectedTeamChanged(Team? value)
+    {
+        IsSelectedTeam = value != null;
     }
 }
