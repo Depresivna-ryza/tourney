@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace Tourney.Views;
 
-public partial class TourneyView : UserControl
+public partial class EliminationMatchView : UserControl
 {
-    public TourneyView()
+    public EliminationMatchView()
     {
         InitializeComponent();
     }

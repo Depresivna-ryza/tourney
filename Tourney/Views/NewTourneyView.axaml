@@ -25,6 +25,16 @@
             <Setter Property="FontSize" Value="13"/>
             <Setter Property="FontWeight" Value="Bold"/> 
         </Style>
+        
+        <Style Selector="ComboBox">
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#909090"/>
+        </Style>
     </UserControl.Styles>
     
     
@@ -134,10 +144,43 @@
             </ScrollViewer>
         </Grid>
         
+        <Grid Grid.Column="1" Grid.Row="5">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                
+                <TextBlock Text="Best of:" 
+                           IsVisible="{Binding IsVersusTourney}" 
+                           FontSize="13" 
+                           Margin="0,18,0,0"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Right"/>
+                
+                <NumericUpDown
+                    TextInput="NumericUpDown_OnPreviewTextInput"
+                    FormatString="N0"
+                    ParsingNumberStyle="Integer"
+                    Increment="1"
+                    Minimum="1"
+                    Maximum="100"
+                    Value="{Binding VersusTourneyRounds}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="10,10"
+                    Height="10"
+                    IsVisible="{Binding IsVersusTourney}"
+                    />
+                
+                <ComboBox ItemsSource="{Binding TourneyTypes}" 
+                          SelectedItem="{Binding SelectedTourneyType}"
+                          HorizontalAlignment="Right"
+                          VerticalAlignment="Top"
+                          Margin="10,10"/>
+            </StackPanel>
+        </Grid>
+        
         <Grid Grid.Column="3" Grid.Row="4">
             <TextBlock Text="Tourney Name" FontSize="15" HorizontalAlignment="Center"/>
         </Grid>
-
+        
         <Grid Grid.Column="3" Grid.Row="5">
             <TextBox Text="{Binding TourneyName}" 
                      FontSize="20" 

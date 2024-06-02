@@ -48,6 +48,12 @@ public partial class TourneyManager : ObservableObject
         CurrentTourney.PropertyChanged += (sender, args) => CurrentTourneyChanged?.Invoke(this, EventArgs.Empty);
     }
     
+    public void StartVersusTourney(string name, Team team1, Team team2, int rounds)
+    {
+        CurrentTourney = new VersusTourney(name, rounds, team1, team2);
+        CurrentTourney.PropertyChanged += (sender, args) => CurrentTourneyChanged?.Invoke(this, EventArgs.Empty);
+    }
+    
     public void DiscardCurrentTourney()
     {
         CurrentTourney = null;

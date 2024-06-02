@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:Tourney.ViewModels"
              mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="100"
-             x:Class="Tourney.Views.MatchView"
-             x:DataType="viewModels:MatchViewModel">
+             x:Class="Tourney.Views.EliminationMatchView"
+             x:DataType="viewModels:EliminationMatchViewModel">
     
             <UserControl.Styles>
                 <Style Selector="Button">

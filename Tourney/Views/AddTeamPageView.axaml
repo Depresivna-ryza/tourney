@@ -73,7 +73,6 @@
             <Setter Property="Background" Value="#303030"/>
         </Style>
         
-        
         <Style Selector="ScrollViewer">
              <Setter Property="VerticalScrollBarVisibility" Value="Hidden"/>
              <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
@@ -115,8 +114,8 @@
                                  FontSize="13" 
                                  Background="#1e1e1e" 
                                  MaxLength="200"
-                                 MaxLines="5"
-                                 NewLine="True"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
                                  Margin="5"/>
                     </Grid>
                     

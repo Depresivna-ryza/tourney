@@ -45,6 +45,21 @@ public partial class NewTourneyViewModel : ViewModelBase
     [ObservableProperty]
     private string _teamFilter = "";
     
+    [ObservableProperty]
+    private string _selectedTourneyType = "Elimination";
+    
+    [ObservableProperty]
+    private bool _isVersusTourney = false;
+
+    [ObservableProperty] 
+    private string _versusTourneyRounds = "5";
+
+    public ObservableCollection<string> TourneyTypes { get; } = new ObservableCollection<string>
+    {
+        "Elimination",
+        "Versus"
+    };
+    
     public void SelectedTeamsChanged()
     {
         var newAllTeams = new ObservableCollection<Tuple<Team, bool>>();
@@ -63,8 +78,6 @@ public partial class NewTourneyViewModel : ViewModelBase
         }
         
         AllTeams = newAllTeams;
-        // UpdateFilteredTeams();
-        //
         SelectedTeamsFiltered = new ObservableCollection<Team>(AllTeams.Where(t => t.Item2).Select(t => t.Item1));
         SelectedTeamsCount = SelectedTeamsFiltered.Count;
         
@@ -92,21 +105,43 @@ public partial class NewTourneyViewModel : ViewModelBase
             SelectedTeams.Add(team);
         }
     }
+    
+    partial void OnSelectedTourneyTypeChanged(string value)
+    {
+        UpdateCanStartTourney();
+        IsVersusTourney = SelectedTourneyType == "Versus";
+    }
 
     public void UpdateCanStartTourney()
     {
-        CanStartTourney = SelectedTeamsCount >= 2 && 
-                          !string.IsNullOrWhiteSpace(TourneyName) && 
-                          TourneyName.Length > 3;
+        bool nameValid = !string.IsNullOrWhiteSpace(TourneyName) && TourneyName.Length > 3;
+        
+        if (SelectedTourneyType == "Versus")
+        {
+            CanStartTourney = SelectedTeamsCount == 2 && nameValid;
+        }
+        else
+        {
+            CanStartTourney = SelectedTeamsCount > 2 && nameValid;
+        }
     }
     
     [RelayCommand]
     private void StartTourney()
     {
-        TourneyManager.Instance.StartEliminationTourney(TourneyName, SelectedTeamsFiltered);
+        if (SelectedTourneyType == "Versus")
+        {
+            int rounds = int.TryParse(VersusTourneyRounds, out int r) ? r : 5;
+            TourneyManager.Instance.StartVersusTourney(TourneyName, SelectedTeamsFiltered[0], SelectedTeamsFiltered[1], rounds);
+        }
+        else
+        {
+            TourneyManager.Instance.StartEliminationTourney(TourneyName, SelectedTeamsFiltered);
+        }
+        
+        
         TourneyName = "";
         SelectedTeams.Clear();
-        
         OnTourneyStarted();
     }
     protected virtual void OnTourneyStarted()

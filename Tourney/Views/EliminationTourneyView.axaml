@@ -5,8 +5,8 @@
              xmlns:views="clr-namespace:Tourney.Views;assembly=Tourney"
              xmlns:viewModels="clr-namespace:Tourney.ViewModels"
              mc:Ignorable="d" d:DesignWidth="1800" d:DesignHeight="1450"
-             x:Class="Tourney.Views.TourneyView"
-             x:DataType="viewModels:TourneyViewModel"
+             x:Class="Tourney.Views.EliminationTourneyView"
+             x:DataType="viewModels:EliminationTourneyViewModel"
              >
     
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
@@ -35,7 +35,7 @@
                                             VerticalAlignment="Center" Margin="0,0,10,0" CornerRadius="0,100,100,0"
                                             IsVisible="{Binding !Item2}"/>
                                     
-                                    <views:MatchView Grid.Column="1" DataContext="{Binding Item1}"/>
+                                    <views:EliminationMatchView Grid.Column="1" DataContext="{Binding Item1}"/>
                                     
                                     <Grid Grid.Column="2" RowDefinitions="*,5,*" >
                                         <Rectangle Grid.Row="0" Width="5" Fill="#202020" HorizontalAlignment="Right"

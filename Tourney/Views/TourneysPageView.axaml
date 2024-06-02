@@ -78,10 +78,18 @@
             </ListBox.Styles>
         </ListBox>
         
+        <TransitioningContentControl Grid.Column="3" Grid.Row="1" 
+                                     Grid.RowSpan="2"
+                                     Content="{Binding EliminationTourneyViewModel}"
+                                     IsVisible="{Binding IsEliminationTourney}"
+                                     />
+        
         
         <TransitioningContentControl Grid.Column="3" Grid.Row="1" 
                                      Grid.RowSpan="2"
-                                     Content="{Binding TourneyViewModel}" />
+                                     Content="{Binding VersusTourneyViewModel}"
+                                     IsVisible="{Binding IsVersusTourney}"
+                                     />
         <!-- <views:TourneyView Grid.Column="1" Grid.Row="1" IsEnabled="False" DataContext="{Binding TourneyViewModel}" /> -->
     </Grid>
 

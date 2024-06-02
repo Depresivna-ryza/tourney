@@ -23,7 +23,17 @@ public partial class OngoingTourneyViewModel : ViewModelBase
     private bool _isFinished;
     
     [ObservableProperty]
-    private TourneyViewModel _tourneyViewModel = new(null);
+    private EliminationTourneyViewModel _eliminationTourneyViewModel = new(null);
+    
+    [ObservableProperty]
+    private VersusTourneyViewModel _versusTourneyViewModel = new(null);
+
+    [ObservableProperty] 
+    private bool _isVersusTourney;
+    
+    [ObservableProperty]
+    private bool _isEliminationTourney;
+    
     
     public void StartTourney()
     {
@@ -33,9 +43,20 @@ public partial class OngoingTourneyViewModel : ViewModelBase
     private void UpdateTourney()
     {
         Tourney = TourneyManager.Instance.CurrentTourney;
-        TourneyViewModel.UpdateTourney(Tourney as EliminationTourney);
 
-
+        if (Tourney is VersusTourney)
+        {
+            VersusTourneyViewModel.UpdateTourney(Tourney as VersusTourney);
+            IsVersusTourney = true;
+            IsEliminationTourney = false;
+        }
+        else if (Tourney is EliminationTourney)
+        {
+            EliminationTourneyViewModel.UpdateTourney(Tourney as EliminationTourney);
+            IsEliminationTourney = true;
+            IsVersusTourney = false;
+        }
+        
         if (Tourney != null) 
         {
             IsFinished = Tourney.Winner != null;

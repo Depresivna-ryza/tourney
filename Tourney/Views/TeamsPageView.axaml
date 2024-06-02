@@ -8,7 +8,7 @@
              x:DataType="viewModels:TeamsPageViewModel">
     
     <UserControl.Styles>
-        <Style Selector="Button">
+        <Style Selector="Button.Big">
             <Setter Property="CornerRadius" Value="300"/>
             <Setter Property="Background" Value="White"/>
             <Setter Property="Foreground" Value="#1e1e1e"/>
@@ -17,13 +17,30 @@
             <Setter Property="FontWeight" Value="Bold"/> 
         </Style>
         
-        <Style Selector="Button:pointerover /template/ ContentPresenter">
-            <Setter Property="Background" Value="White"/>
+        <Style Selector="Button.Big:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#aaaaaa"/>
             <Setter Property="Foreground" Value="#1e1e1e"/>
-            <Setter Property="Padding" Value="18"/>
+            <Setter Property="Padding" Value="16"/>
             <Setter Property="FontSize" Value="13"/>
             <Setter Property="FontWeight" Value="Bold"/> 
         </Style>
+        
+        <Style Selector="Button.Small">
+            <Setter Property="CornerRadius" Value="300"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#1e1e1e"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="10"/>
+        </Style>
+        
+        <Style Selector="Button.Small:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#aaaaaa"/>
+            <Setter Property="Foreground" Value="#1e1e1e"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="10"/>
+        </Style>
+        
+
     </UserControl.Styles>
 
     <Grid ColumnDefinitions="2,2*,20,3*,2" RowDefinitions="100,*">
@@ -37,13 +54,21 @@
         </Grid>  
         
         <Grid Grid.Column="1" Grid.Row="1">
-            <ListBox
-                ItemsSource="{Binding Teams} " SelectedItem="{Binding SelectedTeam}">
+            
+            <Border Background="#101010" CornerRadius="10" Padding="10">
+            <Grid RowDefinitions="40,*" Background="#101010">
+            
+            <TextBox Text="{Binding TeamFilter}" 
+                     Watermark="Search..."
+                     Margin="10" Background="Transparent" CornerRadius="40" />
+            
+            <ListBox Grid.Row="1" ItemsSource="{Binding Teams} " SelectedItem="{Binding SelectedTeam}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Name}" FontSize="15" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
+                
                 
                 <ListBox.Styles>
                     <Style Selector="ListBox">
@@ -51,38 +76,41 @@
                         <Setter Property="CornerRadius" Value="10"/>
                         <Setter Property="Padding" Value="10"/>
                     </Style>
-
+        
                     <Style Selector="ListBoxItem:pointerover /template/ ContentPresenter">
                         <Setter Property="Foreground" Value="#a0a0a0"/>
                         <Setter Property="Background" Value="#202020"/>
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
-
+        
                     <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
                         <Setter Property="Foreground" Value="White"/>
                         <Setter Property="Background" Value="#303030"/>	
                         <Setter Property="CornerRadius" Value="5"/>
-                        
+        
                         <Setter Property="Margin" Value="0,0,0,0"/>
                     </Style>
-
+        
                     <Style Selector="ListBoxItem:pressed /template/ ContentPresenter">
                         <Setter Property="Background" Value="#333333"/>	
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
-                    
+        
                     <Style Selector="ListBoxItem /template/ ContentPresenter">
                         <Setter Property="Foreground" Value="#a0a0a0"/>
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </ListBox.Styles>
+   
             </ListBox>
+            </Grid>
+            </Border>
         </Grid>     
         
         <Grid Grid.Column="3" Grid.Row="1">
+            <ScrollViewer>
             <Border IsVisible="{Binding IsSelectedTeam}">
                 <Grid RowDefinitions="*, 70">
-                
                     <StackPanel Grid.Row="0">
                         <TextBlock Text="Team Name" FontSize="10" Foreground="#808080" Margin="10,5"/>
                         <TextBlock Text="{Binding SelectedTeam.Name}" FontSize="20" Margin="10,5"/>
@@ -90,26 +118,170 @@
                         <Border Height="1" Background="#404040" Margin="7,15,30,15" CornerRadius="5"/>
 
                         <TextBlock Text="Description" FontSize="10" Foreground="#808080" Margin="10,5"/>
-                        <TextBlock Text="{Binding SelectedTeam.Description}" FontSize="15" Margin="10,5"/>
+                        
+                        <Grid ColumnDefinitions="*, 160">
+                            <TextBlock Grid.Column="0" Text="{Binding SelectedTeam.Description}" 
+                                       FontSize="15" Margin="10,5" TextWrapping="Wrap"
+                                       IsVisible="{Binding !IsEditDescription}"/>
+                            
+                            <TextBox Grid.Column="0"  Text="{Binding NewDescription, Mode=TwoWay}" 
+                                       FontSize="15" Margin="10,5" 
+                                       TextWrapping="Wrap"
+                                       MaxLength="200"
+                                       AcceptsReturn="True"
+                                       IsVisible="{Binding IsEditDescription}"/>
+                            
+                            <Button Grid.Column="1" Classes="Small" Content="Edit" VerticalAlignment="Bottom"
+                                    Command="{Binding EditDescriptionCommand}" 
+                                    IsVisible="{Binding !IsEditDescription}" HorizontalAlignment="Right"/>
+                            
+                            <StackPanel Grid.Column="1"  IsVisible="{Binding IsEditDescription}" Orientation="Horizontal"
+                                        HorizontalAlignment="Right" Spacing="10">
+                                <Button Classes="Small" Content="Discard" VerticalAlignment="Bottom"
+                                        Command="{Binding DiscardDescriptionCommand}" 
+                                        HorizontalAlignment="Right"/>
+                                
+                                <Button Classes="Small" Content="Save" VerticalAlignment="Bottom"
+                                        Command="{Binding SaveDescriptionCommand}" 
+                                        HorizontalAlignment="Right"/>
+                            </StackPanel>
+                        </Grid>
+                        
                         
                         <Border Height="1" Background="#404040" Margin="7,15,30,15" CornerRadius="5"/>
                         
-                        <!-- <TextBlock Text="Members" FontSize="10" Foreground="#808080" Margin="10,5"/> -->
-                        <!-- <TextBlock Text="tbd" FontSize="15" Margin="10,5"/> -->
-                        
                         <TextBlock Text="Icon" FontSize="10" Foreground="#808080" Margin="10,5"/>
-                        <Svg Path="{Binding SelectedTeam.IconPath}"
-                                Width="60"
-                                Height="60"
-                                Css="{Binding SelectedTeam.Color, StringFormat='.Black {{ fill: {0}; }}'}"
-                                HorizontalAlignment="Left"
-                                Margin="10"
-                             />
+                        
+                        <Grid ColumnDefinitions="*, 160">
+                            <Svg Grid.Column="0" Path="{Binding SelectedTeam.IconPath}"
+                                 Width="60"
+                                 Height="60"
+                                 Css="{Binding SelectedTeam.Color, StringFormat='.Black {{ fill: {0}; }}'}"
+                                 HorizontalAlignment="Left"
+                                 Margin="10"
+                                 IsVisible="{Binding !IsEditIcon}"/>
+                            
+                            <StackPanel Grid.Column="0" Orientation="Horizontal"
+                                        IsVisible="{Binding IsEditIcon}">
+                                
+                                <ListBox ItemsSource="{Binding IconPaths}" 
+                                         SelectedItem="{Binding NewIconPath}"
+                                         MaxWidth="350"
+                                         Height="100">
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Svg Path="{Binding}"
+                                                 Width="40"
+                                                 Height="40"
+                                                 Css="{Binding $parent[ListBox].((viewModels:TeamsPageViewModel)DataContext).NewColor, StringFormat='.Black {{ fill: {0}; }}'}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                    
+                                <ListBox.Styles>
+                                    <Style Selector="ListBox">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderBrush" Value="#aaaaaa"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                        <Setter Property="Padding" Value="10"/>
+                                        <Setter Property="Margin" Value="5"/>
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+        
+                                    <Style Selector="ListBoxItem">
+                                        <Setter Property="Foreground" Value="#a0a0a0"/>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="Padding" Value="5"/>
+                                        <Setter Property="Margin" Value="5"/>
+                                    </Style>
+        
+                                    <Style Selector="ListBoxItem:selected">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="CornerRadius" Value="10"/>
+                                        <Setter Property="BorderBrush" Value="#aaaaaa"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                        <Setter Property="Margin" Value="4"/>
+                                    </Style>
+        
+                                    <Style Selector="ListBoxItem:pointerover">
+                                        <Setter Property="Background" Value="#303030"/>
+                                    </Style>
+                                </ListBox.Styles>  
+                                    
+                                </ListBox>
+                                
+                                <ListBox ItemsSource="{Binding PredefinedColors}" 
+                                         SelectedItem="{Binding NewColor}"
+                                         Width="150"
+                                         Height="100">
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Rectangle Width="20" Height="20" RadiusX="10" RadiusY="10" Fill="{Binding}" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                    
+                                    <ListBox.Styles>
+                                        <Style Selector="ListBox">
+                                            <Setter Property="Background" Value="Transparent"/>
+                                            <Setter Property="BorderBrush" Value="#aaaaaa"/>
+                                            <Setter Property="BorderThickness" Value="1"/>
+                                            <Setter Property="Padding" Value="10"/>
+                                            <Setter Property="Margin" Value="5"/>
+                                            <Setter Property="CornerRadius" Value="5"/>
+                                        </Style>
+                                        
+        
+                                        <Style Selector="ListBoxItem">
+                                            <Setter Property="Foreground" Value="#a0a0a0"/>
+                                            <Setter Property="Background" Value="Transparent"/>
+                                            <Setter Property="Padding" Value="5"/>
+                                            <Setter Property="Margin" Value="5"/>
+                                        </Style>
+        
+                                        <Style Selector="ListBoxItem:selected">
+                                            <Setter Property="Background" Value="Transparent"/>
+                                            <Setter Property="CornerRadius" Value="10"/>
+                                            <Setter Property="BorderBrush" Value="#aaaaaa"/>
+                                            <Setter Property="BorderThickness" Value="1"/>
+                                            <Setter Property="Margin" Value="4"/>
+                                        </Style>
+        
+                                        <Style Selector="ListBoxItem:pointerover">
+                                            <Setter Property="Background" Value="#303030"/>
+                                        </Style>
+                                    </ListBox.Styles>  
+                                </ListBox>
+                            </StackPanel>
+                            
+                            <Button Grid.Column="1" Classes="Small" Content="Edit" VerticalAlignment="Bottom"
+                                    Command="{Binding EditIconCommand}" 
+                                    IsVisible="{Binding !IsEditIcon}" HorizontalAlignment="Right"/>
+                            
+                            <StackPanel Grid.Column="1"  IsVisible="{Binding IsEditIcon}" Orientation="Horizontal"
+                                        HorizontalAlignment="Right" Spacing="10">
+                                <Button Classes="Small" Content="Discard" VerticalAlignment="Bottom"
+                                        Command="{Binding DiscardIconCommand}" 
+                                         HorizontalAlignment="Right"/>
+                            
+                                <Button Classes="Small" Content="Save" VerticalAlignment="Bottom"
+                                        Command="{Binding SaveIconCommand}" 
+                                        HorizontalAlignment="Right"/>
+                            </StackPanel>
+                        </Grid>
                         
                     </StackPanel>
                     
                     
-                    <Button Grid.Row="1" Content="Remove" Command="{Binding RemoveTeamCommand}" HorizontalAlignment="Right"/>
+                    <Button Grid.Row="1" Classes="Big" Content="Remove" Command="{Binding RemoveTeamCommand}" HorizontalAlignment="Right"/>
                         
                     
                 </Grid>
@@ -122,8 +294,8 @@
                     </Style>
                 </Border.Styles>
             </Border>
+            </ScrollViewer>
         </Grid>
-        
     </Grid>
 
 </UserControl>

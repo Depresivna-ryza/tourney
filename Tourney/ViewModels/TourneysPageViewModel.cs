@@ -1,6 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Tourney.Models;
 
 namespace Tourney.ViewModels;
@@ -14,6 +15,27 @@ public partial class TourneysPageViewModel : ViewModelBase
         
         TourneyManager.Instance.Tourneys.CollectionChanged += (sender, args) => UpdateTourneys();
     }
+    
+    public ObservableCollection<AbstractTourney> Tourneys { get; set; }
+    
+    [ObservableProperty]
+    private AbstractTourney? _selectedTourney;
+
+    [ObservableProperty] 
+    private EliminationTourneyViewModel? _eliminationTourneyViewModel;    
+    
+    [ObservableProperty] 
+    private VersusTourneyViewModel? _versusTourneyViewModel;    
+    
+    [ObservableProperty]
+    private bool _isEliminationTourney;
+    
+    [ObservableProperty]
+    private bool _isVersusTourney;
+    
+    [ObservableProperty] 
+    private bool _enabled = false;
+
     
     partial void OnSelectedTourneyChanged(AbstractTourney? oldValue, AbstractTourney? newValue)
     {
@@ -30,7 +52,19 @@ public partial class TourneysPageViewModel : ViewModelBase
         
         Enabled = true;
         
-        TourneyViewModel = new TourneyViewModel( SelectedTourney as EliminationTourney);
+        if (SelectedTourney is VersusTourney)
+        {
+            IsVersusTourney = true;
+            IsEliminationTourney = false;
+            VersusTourneyViewModel = new VersusTourneyViewModel(SelectedTourney as VersusTourney);
+        }
+        else if (SelectedTourney is EliminationTourney)
+        {
+            IsEliminationTourney = true;
+            IsVersusTourney = false;
+            EliminationTourneyViewModel = new EliminationTourneyViewModel(SelectedTourney as EliminationTourney);
+        }
+        
         // TourneyViewModel.UpdateTourney(SelectedTourney);
     }
 
@@ -39,15 +73,6 @@ public partial class TourneysPageViewModel : ViewModelBase
         Tourneys = TourneyManager.Instance.Tourneys;
     }
 
-    public ObservableCollection<AbstractTourney> Tourneys { get; set; }
-    
-    [ObservableProperty]
-    private AbstractTourney? _selectedTourney;
 
-    [ObservableProperty] 
-    private TourneyViewModel? _tourneyViewModel = null;    
-    
-    [ObservableProperty] 
-    private bool _enabled = false;
 
 }

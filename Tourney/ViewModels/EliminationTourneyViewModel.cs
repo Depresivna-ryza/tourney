@@ -5,11 +5,11 @@ using Tourney.Models;
 
 namespace Tourney.ViewModels;
 // MatchView, IsFirst, IsLast, DisplayEven, DisplayOdd
-using MatchTuple = Tuple<MatchViewModel, bool , bool, bool, bool>;
-public partial class TourneyViewModel : ViewModelBase
+using MatchTuple = Tuple<EliminationMatchViewModel, bool , bool, bool, bool>;
+public partial class EliminationTourneyViewModel : ViewModelBase
 {
 
-    public TourneyViewModel(EliminationTourney? tourney)
+    public EliminationTourneyViewModel(EliminationTourney? tourney)
     {
         UpdateTourney(tourney);
         if (tourney != null)
@@ -54,7 +54,7 @@ public partial class TourneyViewModel : ViewModelBase
                 bool isLast = i == Tourney.Rounds.Count - 1;
                 bool displayEven = j % 2 == 0 && !isLast;
                 bool displayOdd = j % 2 == 1 && !isLast;
-                roundViewModel.Add(new MatchTuple(new MatchViewModel(match), isFirst, isLast, displayEven, displayOdd));
+                roundViewModel.Add(new MatchTuple(new EliminationMatchViewModel(match), isFirst, isLast, displayEven, displayOdd));
             }
             Rounds.Add(roundViewModel);
         }

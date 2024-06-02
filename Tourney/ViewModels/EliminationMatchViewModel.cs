@@ -6,9 +6,9 @@ using Tourney.Models;
 
 namespace Tourney.ViewModels;
 
-public partial class MatchViewModel : ViewModelBase
+public partial class EliminationMatchViewModel : ViewModelBase
 {
-    public MatchViewModel(EliminationMatch eliminationMatch)
+    public EliminationMatchViewModel(EliminationMatch eliminationMatch)
     {
         EliminationMatch = eliminationMatch;
         EliminationMatch.PropertyChanged += (sender, args) => UpdateMatch();
