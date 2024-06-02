@@ -8,6 +8,7 @@
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="Tourney"
+        ExtendClientAreaToDecorationsHint="True"
         Background="{StaticResource CyanGradient}">
 
     <Design.DataContext>
@@ -21,6 +22,7 @@
                OpenPaneLength="180"
                DisplayMode="CompactInline"
                CompactPaneLength="68"
+               Margin="0,18,0,0"
                PaneBackground="Transparent"
                Background="Transparent"
                >
@@ -48,7 +50,9 @@
                                    FontWeight="Bold"/>
                     </StackPanel>
     
-                    <Border Height="3" Background="#404040" Margin="10,20,15,20" CornerRadius="5"/>
+                    <Border Height="3" 
+                            Background="#404040" 
+                            Margin="10,20,15,20" CornerRadius="5"/>
     
                     <ListBox ItemsSource="{Binding PageItems}"
                              SelectedItem="{Binding CurrentPageItem}">
