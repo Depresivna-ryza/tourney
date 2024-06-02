@@ -44,7 +44,7 @@ public partial class MainWindowViewModel : ViewModelBase
 
     public ObservableCollection<MainPageItem> PageItems { get; set; } =
     [
-        new MainPageItem("Home", new HomePageViewModel(), "HomeIcon"),
+        // new MainPageItem("Home", new HomePageViewModel(), "HomeIcon"),
         new MainPageItem("Teams", new TeamsPageViewModel(), "TeamIcon"),
         new MainPageItem("Tourneys", new TourneysPageViewModel(), "TourneyIcon"),
         new MainPageItem("Add Team", new AddTeamPageViewModel(), "AddTeamIcon"),

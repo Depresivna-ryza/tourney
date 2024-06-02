@@ -42,7 +42,20 @@ public partial class OngoingTourneyViewModel : ViewModelBase
     
     private void UpdateTourney()
     {
-        Tourney = TourneyManager.Instance.CurrentTourney;
+        
+        var newTourney = TourneyManager.Instance.CurrentTourney;
+        
+        if (newTourney != null) 
+        {
+            IsFinished = newTourney.Winner != null;
+        }
+        
+        // if ( newTourney == Tourney)
+        // {
+        //     return;
+        // }
+        
+        Tourney = newTourney;
 
         if (Tourney is VersusTourney)
         {
@@ -55,11 +68,6 @@ public partial class OngoingTourneyViewModel : ViewModelBase
             EliminationTourneyViewModel.UpdateTourney(Tourney as EliminationTourney);
             IsEliminationTourney = true;
             IsVersusTourney = false;
-        }
-        
-        if (Tourney != null) 
-        {
-            IsFinished = Tourney.Winner != null;
         }
     }
     

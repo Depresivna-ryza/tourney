@@ -37,6 +37,13 @@ public partial class EliminationTourneyViewModel : ViewModelBase
             return;
         }
         
+        if ( newTourney == Tourney)
+        {
+            TrophyColor = newTourney.Winner != null ? "White" : "#202020";
+            WinnerName = newTourney.Winner?.Name ?? "";
+            return;
+        }
+        
         Rounds.Clear();
 
         Tourney = newTourney;

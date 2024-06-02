@@ -60,7 +60,13 @@ public partial class EliminationMatchViewModel : ViewModelBase
     
     private void TimerTick(object? sender, EventArgs e)
     {
-        ElapsedTime = ElapsedTime.Add(TimeSpan.FromSeconds(1));
+        if (EliminationMatch.State == EliminationMatch.MatchState.InProgress)
+        {
+            ElapsedTime = ElapsedTime.Add(TimeSpan.FromSeconds(1));
+        } else if (EliminationMatch.State == EliminationMatch.MatchState.Finished)
+        {
+            Timer.Stop();
+        }
     }
     
     
@@ -102,7 +108,7 @@ public partial class EliminationMatchViewModel : ViewModelBase
             
             Timer.Tick += TimerTick;
             Timer.Start();
-            ElapsedTime = TimeSpan.FromSeconds(32);
+            ElapsedTime = TimeSpan.FromSeconds(1);
         }
     }
 
@@ -111,7 +117,6 @@ public partial class EliminationMatchViewModel : ViewModelBase
     {
         if (EliminationMatch.State == EliminationMatch.MatchState.InProgress)
         {
-            Timer.Stop();
             EliminationMatch.EndMatch(winner == EliminationMatch.Team1, ElapsedTime);
         }
     }
