@@ -13,8 +13,6 @@ public partial class EliminationMatchViewModel : ViewModelBase
         EliminationMatch = eliminationMatch;
         EliminationMatch.PropertyChanged += (sender, args) => UpdateMatch();
         UpdateMatch();
-        
-        Timer.Tick += TimerTick;
     }
     
     [ObservableProperty]
@@ -82,7 +80,6 @@ public partial class EliminationMatchViewModel : ViewModelBase
             Color2 = Winner2 ? "White" : "#666666";
             
             VsColor = "#666666";
-            
         }
         
         if (EliminationMatch.State == EliminationMatch.MatchState.InProgress)
@@ -103,8 +100,9 @@ public partial class EliminationMatchViewModel : ViewModelBase
         {
             EliminationMatch.StartMatch();
             
+            Timer.Tick += TimerTick;
             Timer.Start();
-            ElapsedTime = TimeSpan.Zero;
+            ElapsedTime = TimeSpan.FromSeconds(32);
         }
     }
 

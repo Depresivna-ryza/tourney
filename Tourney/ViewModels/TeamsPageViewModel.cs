@@ -77,7 +77,8 @@ public partial class TeamsPageViewModel : ViewModelBase
     {
         IsEditDescription = false;
         
-        SelectedTeam.Description = NewDescription;
+        TourneyManager.Instance.ChangeDescription(SelectedTeam!, NewDescription);
+        
         NewDescription = "";
     }
     
@@ -98,8 +99,9 @@ public partial class TeamsPageViewModel : ViewModelBase
     private void SaveIcon()
     {
         IsEditIcon = false;
-        SelectedTeam.IconPath = NewIconPath;
-        SelectedTeam.Color = NewColor;
+        
+        TourneyManager.Instance.ChangeIcon(SelectedTeam!, NewIconPath);
+        TourneyManager.Instance.ChangeColor(SelectedTeam!, NewColor);
     }
     
     [RelayCommand]

@@ -31,7 +31,7 @@
     
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Grid Height="20">
-                    <TextBlock Text="{Binding ElapsedTime, StringFormat={}{0:mm\\:ss}}"
+                    <TextBlock Text="{Binding EliminationMatch.Duration, StringFormat={}{0:mm\\:ss}}"
                                IsVisible="{Binding InProgress}"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Bottom"/>

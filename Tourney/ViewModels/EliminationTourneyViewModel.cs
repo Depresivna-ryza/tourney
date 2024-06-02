@@ -18,7 +18,6 @@ public partial class EliminationTourneyViewModel : ViewModelBase
         }
     }
     
-
     public ObservableCollection<ObservableCollection<MatchTuple>> Rounds { get; set; } = new();
     
     [ObservableProperty] 

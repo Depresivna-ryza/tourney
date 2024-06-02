@@ -32,8 +32,6 @@ public partial class AddTeamPageViewModel : ViewModelBase
         
         SelectedIconPath = IconPaths[new Random().Next(IconPaths.Count)];
         SelectedColor = PredefinedColors[new Random().Next(PredefinedColors.Count)];
-        
-        
     }
 
     [ObservableProperty]

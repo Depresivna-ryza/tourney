@@ -31,6 +31,7 @@ public partial class EliminationMatch : ObservableObject
     
     [ObservableProperty]
     private EliminationMatch? _nextEliminationMatch = null;
+    
     [ObservableProperty]
     private bool _nextMatchSlot1;
 

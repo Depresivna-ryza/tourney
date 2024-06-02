@@ -11,12 +11,6 @@ public partial class Team : ObservableObject
         Color = color;
         IconPath = icon;
     }
-    
-    // public string Name { get; set; }
-    // public string Description { get; set; }
-    // public string Color { get; set; }
-    // public string IconPath { get; set; }
-
     [ObservableProperty] private string _name;
     [ObservableProperty] private string _description;
     [ObservableProperty] private string _color;

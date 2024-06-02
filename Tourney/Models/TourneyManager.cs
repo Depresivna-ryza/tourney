@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Tourney.Io;
 
 namespace Tourney.Models;
 
@@ -13,27 +14,57 @@ public partial class TourneyManager : ObservableObject
 {
     public TourneyManager()
     {
-        Teams = new ObservableCollection<Team>
-        {
-            new ("DanoDrevo", "rad odpisujem vodomery 🛁", "#FFFFFF"),
-            new ("Zapalkari", "🤙🤙", "#FF0000"),
-            new ("zebrak", "lorem ipsum", "#00FF00"),
-            new ("lgbt", "he/he 🤡", "#0000FF"),
-            new ("Vagosi", "<3 suche lepidlo", "#FFFF00"),
-            new ("ಠ_ಠ", "👀", "#FF00FF"),
-            new ("Dong", "homosex ", "#00FFFF"),
-            new ("Brezno", "🤢🤮🤮🤮🤢", "#000000"),
-            new ("Peter1v9", "copium", "#FFFFFF"),
-        };
     }
+    public static void Initialize()
+    {
+        if (_instance != null)
+        {
+            return;
+        }
+        
+        TourneyManagerDto? dto = Serializer.Deserialize();
+        if (dto is null)
+        {
+            _instance = new TourneyManager();
+            _instance.Teams = new ObservableCollection<Team>
+            {
+                new ("DanoDrevo", "rad odpisujem vodomery 🛁", "#cc6666"),
+                new ("Zapalkari", "🤙🤙", "#cc9c66"),
+                new ("zebrak", "lorem ipsum", "#c2cc66"),
+                new ("lgbt", "he/he 🤡", "#7acc66"),
+                new ("Vagosi", "<3 suche lepidlo", "#66ccaf"),
+                new ("ಠ_ಠ", "👀", "#666dcc"),
+                new ("Dong", "homosex", "#a866cc"),
+                new ("Brezno", "🤢🤮🤮🤮🤢", "#cc66b3"),
+                new ("Peter1v9", "copium", "#cc6666"),
+                new ("average", "to nebol moj flash", "#cc9c66"),
+                new ("BIG TONKA T", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "#666dcc"),
+            };
+        }
+        else
+        {
+            _instance = dto.ToTourneyManager();
+        }
+        
+        _instance.PropertyChanged += (sender, args) => Serializer.Serialize();
+        _instance.Teams.CollectionChanged += (sender, args) => Serializer.Serialize();
+    }
+    
     private static TourneyManager? _instance;
 
     public static TourneyManager Instance
     {
-        get { return _instance ??= new TourneyManager(); }
+        get
+        {
+            if (_instance is null)
+            {
+                Initialize();
+            }
+            return _instance!;
+        }
     }
-    
-    public ObservableCollection<Team> Teams { get; }
+
+    public ObservableCollection<Team> Teams { get; set; } = new();
     
     [ObservableProperty]
     private AbstractTourney? _currentTourney;
@@ -93,6 +124,24 @@ public partial class TourneyManager : ObservableObject
         
         Teams.Add(new Team(name, description, color));
         return true;
+    }
+    
+    public void ChangeDescription(Team team, string description)
+    {
+        team.Description = description;
+        OnPropertyChanged();
+    }
+    
+    public void ChangeColor(Team team, string color)
+    {
+        team.Color = color;
+        OnPropertyChanged();
+    }
+    
+    public void ChangeIcon(Team team, string icon)
+    {
+        team.IconPath = icon;
+        OnPropertyChanged();
     }
     
     public bool RemoveTeam(string name)
