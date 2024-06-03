@@ -10,7 +10,7 @@ namespace Tourney.ViewModels;
 public partial class MainWindowViewModel : ViewModelBase
 {
     [ObservableProperty] 
-    private bool _isPaneOpen = true;
+    private bool _isPaneOpen = false;
     
     [ObservableProperty]
     private string _title = "Tourney";

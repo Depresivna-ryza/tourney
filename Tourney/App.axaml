@@ -36,10 +36,10 @@
          </LinearGradientBrush>      
          
          <LinearGradientBrush x:Key="RedGradient" StartPoint="20%,0%" EndPoint="20%,100%">
-             <GradientStop Color="#470003" Offset="0.0"/>
-             <GradientStop Color="#470003" Offset="0.1"/>
-             <GradientStop Color="#101010" Offset="0.3"/>
-             <GradientStop Color="#101010" Offset="1.0"/>
+             <GradientStop Color="#0d1a1a" Offset="0.0"/>
+             <GradientStop Color="#0d1a1a" Offset="0.05"/>
+             <GradientStop Color="#1c1c1c" Offset="0.2"/>
+             <GradientStop Color="#1c1c1c" Offset="1.0"/>
          </LinearGradientBrush>
          
          <LinearGradientBrush x:Key="BackgroundGradient" StartPoint="20%,60%" EndPoint="100%,60%">

@@ -8,6 +8,7 @@
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="Tourney"
+        MinWidth="1000"
         ExtendClientAreaToDecorationsHint="True"
         Background="{StaticResource CyanGradient}">
 
@@ -50,9 +51,7 @@
                                    FontWeight="Bold"/>
                     </StackPanel>
     
-                    <Border Height="3" 
-                            Background="#404040" 
-                            Margin="10,20,15,20" CornerRadius="5"/>
+                    <Border Height="3" Background="#404040" Margin="10,20,15,20" CornerRadius="5"/>
     
                     <ListBox ItemsSource="{Binding PageItems}"
                              SelectedItem="{Binding CurrentPageItem}">
@@ -113,10 +112,9 @@
     
     
         <SplitView.Content>
-            <Border CornerRadius="14"
-                    Margin="0,20,20,20"
-                    Padding="10"
-                    Background="#1c1c1c">
+            <Border Margin="0,20,20,20"
+                    Background="Transparent"
+            >
                 <TransitioningContentControl Content="{Binding CurrentPageItem.ViewModel}" />
             </Border>
         </SplitView.Content>

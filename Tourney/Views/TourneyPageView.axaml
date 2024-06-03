@@ -5,6 +5,7 @@
              xmlns:viewModels="clr-namespace:Tourney.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Tourney.Views.TourneyPageView"
-             x:DataType="viewModels:TourneyPageViewModel">
+             x:DataType="viewModels:TourneyPageViewModel"
+             >
     <TransitioningContentControl Content="{Binding CurrentViewModel}" />
 </UserControl>

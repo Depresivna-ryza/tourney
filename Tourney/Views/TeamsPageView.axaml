@@ -3,9 +3,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:Tourney.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="650"
              x:Class="Tourney.Views.TeamsPageView"
-             x:DataType="viewModels:TeamsPageViewModel">
+             x:DataType="viewModels:TeamsPageViewModel"
+             Background="#1a1a1a"
+             Padding="10"
+             CornerRadius="14"
+             >
     
     <UserControl.Styles>
         <Style Selector="Button.Big">

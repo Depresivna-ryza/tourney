@@ -11,7 +11,8 @@ public partial class TourneysPageViewModel : ViewModelBase
     public TourneysPageViewModel()
     {
         Tourneys = TourneyManager.Instance.Tourneys;
-        _selectedTourney = Tourneys.Count > 0 ? Tourneys[0] : null;
+        // _selectedTourney = Tourneys.Count > 0 ? Tourneys[0] : null;
+        _selectedTourney = null;
         
         TourneyManager.Instance.Tourneys.CollectionChanged += (sender, args) => UpdateTourneys();
     }

@@ -5,7 +5,10 @@
              xmlns:viewModels="clr-namespace:Tourney.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="650"
              x:Class="Tourney.Views.AddTeamPageView"
-             x:DataType="viewModels:AddTeamPageViewModel">
+             x:DataType="viewModels:AddTeamPageViewModel"
+             Background="#1a1a1a"
+             Padding="10"
+             CornerRadius="14">
     
     <UserControl.Styles>
         <Style Selector="Button.Member">
@@ -91,9 +94,8 @@
         </Grid>
         
         <Grid Grid.Column="1" Grid.Row="2">
-            <Border Background="Transparent"
+            <Border Background="#101010"
                     BorderBrush="#404040"
-                    BorderThickness="2"
                     CornerRadius="10"
                     Padding="60,30,0,30"
                     Margin="0">

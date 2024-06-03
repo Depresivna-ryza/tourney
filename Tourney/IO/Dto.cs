@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using Tourney.Models;
 
 namespace Tourney.Io;
@@ -38,7 +40,7 @@ public class EliminationMatchDto
     {
         Team1 = match.Team1 == null ? null : new TeamDto(match.Team1);
         Team2 = match.Team2 == null ? null : new TeamDto(match.Team2);
-        Winner = match.Winner == null ? null : new TeamDto(match.Winner);
+        Winner1 = match.Winner == match.Team1;
         Duration = match.Duration;
         IsFinal = match.IsFinal;
         NextMatchSlot1 = match.NextMatchSlot1;
@@ -46,12 +48,25 @@ public class EliminationMatchDto
     }
     public TeamDto? Team1 { get; set; }
     public TeamDto? Team2 { get; set; }
-    public TeamDto? Winner { get; set; }
+    public bool Winner1 { get; set; }
 
     public TimeSpan Duration { get; set; }
     public bool IsFinal { get; set; }
     public bool NextMatchSlot1 { get; set; }
     public EliminationMatch.MatchState State { get; set;}
+    
+    public EliminationMatch ToEliminationMatch()
+    {
+        var match = new EliminationMatch();
+        match.Team1 = Team1?.ToTeam();
+        match.Team2 = Team2?.ToTeam();
+        match.Winner = Winner1 ? match.Team1 : match.Team2;
+        match.Duration = Duration;
+        match.IsFinal = IsFinal;
+        match.NextMatchSlot1 = NextMatchSlot1;
+        match.State = State;
+        return match;
+    }
 }
 
 
@@ -81,6 +96,24 @@ public class EliminationTourneyDto
     public DateTime StartDate { get; set; }
     public TeamDto? Winner { get; set; }
     public List<List<EliminationMatchDto>> Rounds { get; set; }
+    
+    public EliminationTourney ToEliminationTourney()
+    {
+        var tourney = new EliminationTourney();
+        tourney.Name = Name;
+        tourney.StartDate = StartDate;
+        tourney.Winner = Winner?.ToTeam();
+        foreach (var round in Rounds)
+        {
+            var roundList = new ObservableCollection<EliminationMatch>();
+            foreach (var match in round)
+            {
+                roundList.Add(match.ToEliminationMatch());
+            }
+            tourney.Rounds.Add(roundList);
+        }
+        return tourney;
+    }
 }
 
 public class VersusTourneyDto
@@ -113,6 +146,19 @@ public class VersusTourneyDto
     
     public int TotalRounds { get; set; }
     public int CurrentRound { get; set; }
+    
+    public VersusTourney ToVersusTourney()
+    {
+        var tourney = new VersusTourney(Name, TotalRounds, Team1.ToTeam(), Team2.ToTeam());
+        tourney.StartDate = StartDate;
+        tourney.Winner = Winner?.ToTeam();
+        tourney.CurrentRound = CurrentRound;
+        foreach (var round in Rounds)
+        {
+            tourney.Rounds.Add(round);
+        }
+        return tourney;
+    }
 }
 
 
@@ -157,6 +203,18 @@ public class TourneyManagerDto
         {
             manager.Teams.Add(team.ToTeam());
         }
+        
+        foreach (var tourney in EliminationTourneys)
+        {
+            manager.Tourneys.Add(tourney.ToEliminationTourney());
+        }
+        
+        foreach (var tourney in VersusTourneys)
+        {
+            manager.Tourneys.Add(tourney.ToVersusTourney());
+        }
+        // sort tourneys by start date
+        manager.Tourneys = new(manager.Tourneys.OrderBy(t => t.StartDate));
 
         return manager;
     }

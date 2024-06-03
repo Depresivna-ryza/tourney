@@ -9,6 +9,9 @@ namespace Tourney.Models;
 
 public partial class EliminationTourney : AbstractTourney
 {
+    public EliminationTourney()
+    {
+    }
     
     public EliminationTourney(string name, IEnumerable<Team> teams)
     {
@@ -73,7 +76,8 @@ public partial class EliminationTourney : AbstractTourney
         
         
     }
-    public ObservableCollection<ObservableCollection<EliminationMatch>> Rounds { get; set; }
+
+    public ObservableCollection<ObservableCollection<EliminationMatch>> Rounds { get; set; } = new();
     public void UpdateWinner()
     {
         Winner = Rounds[^1][0].Winner;

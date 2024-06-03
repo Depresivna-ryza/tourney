@@ -48,6 +48,7 @@ public partial class TourneyManager : ObservableObject
         
         _instance.PropertyChanged += (sender, args) => Serializer.Serialize();
         _instance.Teams.CollectionChanged += (sender, args) => Serializer.Serialize();
+        _instance.Tourneys.CollectionChanged += (sender, args) => Serializer.Serialize();
     }
     
     private static TourneyManager? _instance;
@@ -69,7 +70,7 @@ public partial class TourneyManager : ObservableObject
     [ObservableProperty]
     private AbstractTourney? _currentTourney;
     
-    public ObservableCollection<AbstractTourney> Tourneys { get; } = new();
+    public ObservableCollection<AbstractTourney> Tourneys { get; set; } = new();
     
     public event EventHandler CurrentTourneyChanged;
     

@@ -6,7 +6,10 @@
              xmlns:viewModels="clr-namespace:Tourney.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Tourney.Views.OngoingTourneyView"
-             x:DataType="viewModels:OngoingTourneyViewModel">
+             x:DataType="viewModels:OngoingTourneyViewModel"
+             Background="#1a1a1a"
+             Padding="10"
+             CornerRadius="14">
     
     <UserControl.Styles>
         <Style Selector="Button">
