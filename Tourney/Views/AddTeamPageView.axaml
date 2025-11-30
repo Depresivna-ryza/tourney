@@ -1,0 +1,201 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Tourney.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="650"
+             x:Class="Tourney.Views.AddTeamPageView"
+             x:DataType="viewModels:AddTeamPageViewModel"
+             Background="#1a1a1a"
+             Padding="10"
+             CornerRadius="14">
+    
+    <UserControl.Styles>
+        <Style Selector="Button.Member">
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#aaaaaa"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="9"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#aaaaaa"/>
+            <!-- <Setter Property="Height" Value="35"/> -->
+            <Setter Property="Margin" Value="5"/>
+            <!-- <Setter Property="HorizontalAlignment" Value="Center"/> -->
+            <!-- <Setter Property="VerticalAlignment" Value="Bottom"/> -->
+        </Style>
+        
+        <Style Selector="Button.Member:pointerover /template/ ContentPresenter">
+        </Style>
+        
+        
+        
+        <Style Selector="Button.Button">
+            <Setter Property="CornerRadius" Value="300"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#1e1e1e"/>
+            <Setter Property="Padding" Value="16"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        
+        <Style Selector="Button.Button:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#1e1e1e"/>
+            <Setter Property="Padding" Value="18"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="Bold"/> 
+        </Style>
+        
+        
+        <Style Selector="ListBox">
+            <Setter Property="Background" Value="#1e1e1e"/>
+            <Setter Property="BorderBrush" Value="#aaaaaa"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+
+        <Style Selector="ListBoxItem">
+            <Setter Property="Foreground" Value="#a0a0a0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+        <Style Selector="ListBoxItem:selected">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="BorderBrush" Value="#aaaaaa"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Margin" Value="4"/>
+        </Style>
+
+        <Style Selector="ListBoxItem:pointerover">
+            <Setter Property="Background" Value="#303030"/>
+        </Style>
+        
+        <Style Selector="ScrollViewer">
+             <Setter Property="VerticalScrollBarVisibility" Value="Hidden"/>
+             <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
+        </Style>
+        
+    </UserControl.Styles>
+    
+    <Grid ColumnDefinitions="*,540,*" RowDefinitions="100,1,400,*" ShowGridLines="False">
+        
+        <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0">
+            <TextBlock Text="Add Team" 
+                       FontSize="30" 
+                       HorizontalAlignment="Center" 
+                       FontFamily="Roboto"
+                       Margin="10,10"/>
+        </Grid>
+        
+        <Grid Grid.Column="1" Grid.Row="2">
+            <Border Background="#101010"
+                    BorderBrush="#404040"
+                    CornerRadius="10"
+                    Padding="60,30,0,30"
+                    Margin="0">
+            
+                <Grid ColumnDefinitions="280,120" RowDefinitions="70,100,100,80" ShowGridLines="False">
+
+                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0">
+                        <TextBox Text="{Binding NewTeamName}" 
+                                 Watermark="Team Name" 
+                                 FontSize="13" 
+                                 Background="#1e1e1e"
+                                 MaxLength="10"
+                                 Margin="5" />
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.ColumnSpan="2"  Grid.Row="1">
+                        <TextBox Text="{Binding NewTeamDescription}" 
+                                 Watermark="Description" 
+                                 FontSize="13" 
+                                 Background="#1e1e1e" 
+                                 MaxLength="200"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 Margin="5"/>
+                    </Grid>
+                    
+                    <!-- <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2"> -->
+                    <!--     <Border Background="Transparent" BorderThickness="1" BorderBrush="#aaaaaa" CornerRadius="5" Margin="5"> -->
+                    <!--         <StackPanel Orientation="Horizontal"> -->
+                    <!--             <ScrollViewer Width="340"> -->
+                    <!--                 <ItemsControl ItemsSource="{Binding Members}"> -->
+                    <!--                     <ItemsControl.ItemTemplate> -->
+                    <!--                         <DataTemplate> -->
+                    <!--                             <StackPanel Orientation="Horizontal"> -->
+                    <!--                                 <TextBox Text="{Binding Mode=TwoWay}" -->
+                    <!--                                          Margin="5" -->
+                    <!--                                          Background="#1e1e1e" -->
+                    <!--                                          Width="340" -->
+                    <!--                                          MaxLength="100"/> -->
+                    <!--                             </StackPanel> -->
+                    <!--                         </DataTemplate> -->
+                    <!--                     </ItemsControl.ItemTemplate> -->
+                    <!--                 </ItemsControl> -->
+                    <!--             </ScrollViewer> -->
+                    <!--      -->
+                    <!--             <Button Content="New" -->
+                    <!--                     Command="{Binding AddMemberCommand}" -->
+                    <!--                     Classes="Member" -->
+                    <!--                     HorizontalAlignment="Center" -->
+                    <!--                     VerticalAlignment="Bottom" -->
+                    <!--                     Height="35"> -->
+                    <!--             </Button> -->
+                    <!--         </StackPanel> -->
+                    <!--     </Border> -->
+                    <!-- </Grid> -->
+
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <ListBox ItemsSource="{Binding IconPaths}" SelectedItem="{Binding SelectedIconPath}">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Svg Path="{Binding}"
+                                         Width="40"
+                                         Height="40"
+                                         Css="{Binding $parent[ListBox].((viewModels:AddTeamPageViewModel)DataContext).SelectedColor, StringFormat='.Black {{ fill: {0}; }}'}" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+
+                    <Grid Grid.Column="1" Grid.Row="2">
+                        <ListBox ItemsSource="{Binding PredefinedColors}" SelectedItem="{Binding SelectedColor}">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Rectangle Width="20" Height="20" RadiusX="10" RadiusY="10" Fill="{Binding}" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                    
+                    <Grid Grid.Column="0" Grid.Row="3">
+                        <TextBlock Text="{Binding Message}" FontSize="15" Margin="5" Foreground="{Binding Color}"/>
+                    </Grid>
+                         
+                    <Grid Grid.Column="1"  Grid.Row="3">
+                        <Button Content="Add Team" 
+                                Command="{Binding AddTeamCommand}" 
+                                HorizontalAlignment="Center"
+                                Classes="Button"/>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

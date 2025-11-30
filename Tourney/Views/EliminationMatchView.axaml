@@ -1,0 +1,163 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Tourney.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="100"
+             x:Class="Tourney.Views.EliminationMatchView"
+             x:DataType="viewModels:EliminationMatchViewModel">
+    
+            <UserControl.Styles>
+                <Style Selector="Button">
+                    <Setter Property="CornerRadius" Value="300"/>
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Foreground" Value="#1e1e1e"/>
+                    <Setter Property="Padding" Value="20,5"/>
+                    <Setter Property="Margin" Value="0"/>
+                    <Setter Property="FontSize" Value="13"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+                
+                <Style Selector="Button:pointerover /template/ ContentPresenter">
+                    <Setter Property="Background" Value="#aaaaaa"/>
+                    <Setter Property="Foreground" Value="#1e1e1e"/>
+                    <Setter Property="Padding" Value="20,5"/>
+                    <Setter Property="Margin" Value="0"/>
+                    <Setter Property="FontSize" Value="13"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </UserControl.Styles>
+            
+    
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid Height="20">
+                    <TextBlock Text="{Binding ElapsedTime, StringFormat={}{0:mm\\:ss}}"
+                               IsVisible="{Binding InProgress}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Bottom"/>
+                
+                    <TextBlock Text="{Binding EliminationMatch.Duration, StringFormat={}{0:mm\\:ss}}"
+                               IsVisible="{Binding Finished}"
+                               Foreground="#808080"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Bottom"/>
+                </Grid>
+                
+    
+                <Border Background="#151515" 
+                        CornerRadius="8"
+                        BorderThickness="1"
+                        BorderBrush="#aaaaaa"
+                        Width="360"
+                        Height="100"
+                        BoxShadow="0 0 15 0 #303030"
+                >
+                    
+                <Grid ColumnDefinitions="180,180" RowDefinitions="0,60,40" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid Grid.Row="1" Grid.Column="0">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="5" Margin="0,0,15,0">
+                        <TextBlock Text="{Binding EliminationMatch.Team1.Name}"
+                                   Foreground="{Binding Color1}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="20"/>
+                        
+                        <Svg Path="{Binding EliminationMatch.Team1.IconPath}"
+                             Width="40"
+                             Height="40"
+                             Css="{Binding LogoColor1, StringFormat='.Black {{ fill: {0}; }}'}"
+                        />
+                        </StackPanel>
+                    </Grid>               
+                    
+                    <Grid Grid.Row="1" Grid.Column="1">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Spacing="5" Margin="15,0,0,0">
+                            <Svg Path="{Binding EliminationMatch.Team2.IconPath}"
+                                 Width="40"
+                                 Height="40"
+                                 Css="{Binding LogoColor2, StringFormat='.Black {{ fill: {0}; }}'}"
+                            />
+                            <TextBlock Text="{Binding EliminationMatch.Team2.Name}"
+                                       Foreground="{Binding Color2}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="20"/>
+                        </StackPanel>
+                        
+                    </Grid>
+                    
+                    <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Border Height="1" Background="#404040" Margin="80, 0" VerticalAlignment="Bottom"/>
+                    </Grid>
+                    
+                    
+                    <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                        
+                        <Border Background="Transparent" Height="32" Width="32" CornerRadius="20" Margin="20,0">
+                        
+                            <TextBlock Text="vs"
+                                       Foreground = "{Binding VsColor}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Heavy"
+                                       FontSize="20"/>
+                        </Border>
+                    </Grid>
+                    
+                    <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Button Content="Start"
+                                IsEnabled="False"
+                                IsVisible="{Binding NotStarted}"
+                                HorizontalAlignment="Center"
+                                />
+                    </Grid>
+                    
+                    <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Button Content="Start"
+                                HorizontalAlignment="Center"
+                                IsVisible="{Binding ReadyToStart}"
+                                Command="{Binding StartMatchCommand}"
+                                />
+                    </Grid>
+                    
+                    
+                    <Grid Grid.Row="2" Grid.Column="0">
+                        <Button Content="Win"
+                                HorizontalAlignment="Center"
+                                IsVisible="{Binding InProgress}"
+                                Command="{Binding EndMatchCommand}"
+                                CommandParameter="{Binding EliminationMatch.Team1}"
+                                />
+                    </Grid>
+                    
+                    <Grid Grid.Row="2" Grid.Column="1">
+                        <Button Content="Win"
+                                HorizontalAlignment="Center"
+                                IsVisible="{Binding InProgress}"
+                                Command="{Binding EndMatchCommand}"
+                                CommandParameter="{Binding EliminationMatch.Team2}"
+                                />
+                    </Grid>
+                    
+                    
+                    <Grid Grid.Row="2" Grid.Column="0">
+                        <TextBlock Text="Winner"
+                                Padding="20,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                IsVisible="{Binding Winner1}"
+                        />
+                    </Grid>
+                    
+                    <Grid Grid.Row="2" Grid.Column="1">
+                        <TextBlock Text="Winner"
+                                   Padding="20,0"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   IsVisible="{Binding Winner2}"/>
+                    </Grid>
+                    
+                </Grid>
+                </Border>
+            </StackPanel>
+</UserControl>

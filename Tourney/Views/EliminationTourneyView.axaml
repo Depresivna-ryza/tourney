@@ -1,0 +1,73 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:Tourney.Views;assembly=Tourney"
+             xmlns:viewModels="clr-namespace:Tourney.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1800" d:DesignHeight="1450"
+             x:Class="Tourney.Views.EliminationTourneyView"
+             x:DataType="viewModels:EliminationTourneyViewModel"
+             >
+    
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        
+    <Border Background="#101010" CornerRadius="10" MinHeight="600" Padding="30">
+        <Grid ColumnDefinitions="*,100">
+        <ItemsControl ItemsSource="{Binding Rounds}" HorizontalAlignment="Stretch">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="1"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ItemsControl ItemsSource="{Binding}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="1"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+
+                                <Grid ColumnDefinitions="*,*,*">
+                                    <Border Grid.Column="0" Height="5" MinWidth="10" Background="#202020" HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Center" Margin="0,0,10,0" CornerRadius="0,100,100,0"
+                                            IsVisible="{Binding !Item2}"/>
+                                    
+                                    <views:EliminationMatchView Grid.Column="1" DataContext="{Binding Item1}"/>
+                                    
+                                    <Grid Grid.Column="2" RowDefinitions="*,5,*" >
+                                        <Rectangle Grid.Row="0" Width="5" Fill="#202020" HorizontalAlignment="Right"
+                                                   VerticalAlignment="Stretch" Margin="0,0"
+                                                   IsVisible="{Binding Item5}"/>
+                                        
+                                        <Border Grid.Row="1" Height="5" MinWidth="10" Background="#202020" HorizontalAlignment="Stretch"
+                                                   VerticalAlignment="Center" Margin="10,0,0,0" CornerRadius="100,0,0,100"
+                                                   IsVisible="{Binding !Item3}"/>
+                                        
+                                        <Rectangle Grid.Row="2" Width="5" Fill="#202020" HorizontalAlignment="Right"
+                                                   VerticalAlignment="Stretch" Margin="0,0"
+                                                   IsVisible="{Binding Item4}"/>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            
+            <PathIcon Grid.Column="1" Data="{StaticResource TrophyIcon}" Width="100"
+                      Height="100" Foreground="{Binding  Path=TrophyColor}"
+                      VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding WinnerName}" FontSize="20" FontWeight="Bold"
+                       Foreground="{Binding TrophyColor}" HorizontalAlignment="Center"/>
+        </StackPanel>
+            
+        </Grid>
+    </Border>
+    </ScrollViewer>
+</UserControl>

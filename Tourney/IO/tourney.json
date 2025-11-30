@@ -1,0 +1,1287 @@
+{
+  "EliminationTourneys": [
+    {
+      "Name": "12313",
+      "StartDate": "2024-06-03T01:48:25.1007467+02:00",
+      "Winner": {
+        "Name": "DanoDrevo",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#cc6666",
+        "Description": "rad odpisujem vodomery \uD83D\uDEC1"
+      },
+      "Rounds": [
+        [
+          {
+            "Team1": {
+              "Name": "DanoDrevo",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "rad odpisujem vodomery \uD83D\uDEC1"
+            },
+            "Team2": {
+              "Name": "zebrak",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#c2cc66",
+              "Description": "lorem ipsum"
+            },
+            "Winner1": true,
+            "Duration": "00:00:01",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Zapalkari",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "\uD83E\uDD19\uD83E\uDD19"
+            },
+            "Team2": {
+              "Name": "lgbt",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#7acc66",
+              "Description": "he/he \uD83E\uDD21"
+            },
+            "Winner1": false,
+            "Duration": "00:00:01",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ],
+        [
+          {
+            "Team1": {
+              "Name": "DanoDrevo",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "rad odpisujem vodomery \uD83D\uDEC1"
+            },
+            "Team2": {
+              "Name": "lgbt",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#7acc66",
+              "Description": "he/he \uD83E\uDD21"
+            },
+            "Winner1": true,
+            "Duration": "00:00:01",
+            "IsFinal": true,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ]
+      ]
+    },
+    {
+      "Name": "1231313",
+      "StartDate": "2024-06-03T02:41:42.4222773+02:00",
+      "Winner": {
+        "Name": "Vagosi",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#66ccaf",
+        "Description": "\u003C3 suche lepidlo"
+      },
+      "Rounds": [
+        [
+          {
+            "Team1": {
+              "Name": "DanoDrevo",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "rad odpisujem vodomery \uD83D\uDEC1"
+            },
+            "Team2": {
+              "Name": "zebrak",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#c2cc66",
+              "Description": "lorem ipsum"
+            },
+            "Winner1": false,
+            "Duration": "00:00:01",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Zapalkari",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "\uD83E\uDD19\uD83E\uDD19"
+            },
+            "Team2": {
+              "Name": "Vagosi",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#66ccaf",
+              "Description": "\u003C3 suche lepidlo"
+            },
+            "Winner1": false,
+            "Duration": "00:00:01",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ],
+        [
+          {
+            "Team1": {
+              "Name": "zebrak",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#c2cc66",
+              "Description": "lorem ipsum"
+            },
+            "Team2": {
+              "Name": "Vagosi",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#66ccaf",
+              "Description": "\u003C3 suche lepidlo"
+            },
+            "Winner1": false,
+            "Duration": "00:00:01",
+            "IsFinal": true,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ]
+      ]
+    },
+    {
+      "Name": "kooko",
+      "StartDate": "2024-06-05T08:10:45.7041973+02:00",
+      "Winner": {
+        "Name": "BIG TONKA T",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#666dcc",
+        "Description": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      },
+      "Rounds": [
+        [
+          {
+            "Team1": {
+              "Name": "zebrak",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#c2cc66",
+              "Description": "lorem ipsum"
+            },
+            "Team2": {
+              "Name": "average",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "to nebol moj flash"
+            },
+            "Winner1": false,
+            "Duration": "00:00:04",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Dong",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#a866cc",
+              "Description": "homosex"
+            },
+            "Team2": {
+              "Name": "BIG TONKA T",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#666dcc",
+              "Description": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            },
+            "Winner1": false,
+            "Duration": "00:00:02",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Brezno",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc66b3",
+              "Description": "\uD83E\uDD22\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD22"
+            },
+            "Team2": null,
+            "Winner1": true,
+            "Duration": "00:00:00",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Peter1v9",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "copium"
+            },
+            "Team2": null,
+            "Winner1": true,
+            "Duration": "00:00:00",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ],
+        [
+          {
+            "Team1": {
+              "Name": "average",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "to nebol moj flash"
+            },
+            "Team2": {
+              "Name": "BIG TONKA T",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#666dcc",
+              "Description": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            },
+            "Winner1": false,
+            "Duration": "00:00:04",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Brezno",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc66b3",
+              "Description": "\uD83E\uDD22\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD22"
+            },
+            "Team2": {
+              "Name": "Peter1v9",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "copium"
+            },
+            "Winner1": false,
+            "Duration": "00:00:04",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ],
+        [
+          {
+            "Team1": {
+              "Name": "BIG TONKA T",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#666dcc",
+              "Description": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            },
+            "Team2": {
+              "Name": "Peter1v9",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "copium"
+            },
+            "Winner1": true,
+            "Duration": "00:00:05",
+            "IsFinal": true,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ]
+      ]
+    },
+    {
+      "Name": "12333",
+      "StartDate": "2024-06-11T16:43:54.5925041+02:00",
+      "Winner": {
+        "Name": "Zapalkari",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#cc9c66",
+        "Description": "\uD83E\uDD19\uD83E\uDD19"
+      },
+      "Rounds": [
+        [
+          {
+            "Team1": {
+              "Name": "DanoDrevo",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "rad odpisujem vodomery \uD83D\uDEC1"
+            },
+            "Team2": {
+              "Name": "Vagosi",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#66ccaf",
+              "Description": "\u003C3 suche lepidlo"
+            },
+            "Winner1": false,
+            "Duration": "00:00:05",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Zapalkari",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "\uD83E\uDD19\uD83E\uDD19"
+            },
+            "Team2": null,
+            "Winner1": true,
+            "Duration": "00:00:00",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "zebrak",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#c2cc66",
+              "Description": "lorem ipsum"
+            },
+            "Team2": null,
+            "Winner1": true,
+            "Duration": "00:00:00",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "lgbt",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#7acc66",
+              "Description": "he/he \uD83E\uDD21"
+            },
+            "Team2": null,
+            "Winner1": true,
+            "Duration": "00:00:00",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ],
+        [
+          {
+            "Team1": {
+              "Name": "Vagosi",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#66ccaf",
+              "Description": "\u003C3 suche lepidlo"
+            },
+            "Team2": {
+              "Name": "Zapalkari",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "\uD83E\uDD19\uD83E\uDD19"
+            },
+            "Winner1": false,
+            "Duration": "00:00:03",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "zebrak",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#c2cc66",
+              "Description": "lorem ipsum"
+            },
+            "Team2": {
+              "Name": "lgbt",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#7acc66",
+              "Description": "he/he \uD83E\uDD21"
+            },
+            "Winner1": true,
+            "Duration": "00:00:04",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ],
+        [
+          {
+            "Team1": {
+              "Name": "Zapalkari",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "\uD83E\uDD19\uD83E\uDD19"
+            },
+            "Team2": {
+              "Name": "zebrak",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#c2cc66",
+              "Description": "lorem ipsum"
+            },
+            "Winner1": true,
+            "Duration": "00:00:03",
+            "IsFinal": true,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ]
+      ]
+    },
+    {
+      "Name": "123123",
+      "StartDate": "2024-06-11T17:42:00.3767612+02:00",
+      "Winner": {
+        "Name": "aaaadw",
+        "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\meat-svgrepo-com.svg",
+        "Color": "#cc9c66",
+        "Description": "adw"
+      },
+      "Rounds": [
+        [
+          {
+            "Team1": {
+              "Name": "DanoDrevo",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "rad odpisujem vodomery \uD83D\uDEC1"
+            },
+            "Team2": {
+              "Name": "Peter1v9",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "copium"
+            },
+            "Winner1": false,
+            "Duration": "00:00:06",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Zapalkari",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "\uD83E\uDD19\uD83E\uDD19"
+            },
+            "Team2": {
+              "Name": "average",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "to nebol moj flash"
+            },
+            "Winner1": false,
+            "Duration": "00:00:05",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "zebrak",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#c2cc66",
+              "Description": "lorem ipsum"
+            },
+            "Team2": {
+              "Name": "BIG TONKA T",
+              "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\super-mushroom-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            },
+            "Winner1": false,
+            "Duration": "00:00:04",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "lgbt",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#7acc66",
+              "Description": "he/he \uD83E\uDD21"
+            },
+            "Team2": {
+              "Name": "aaaadw",
+              "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\meat-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "adw"
+            },
+            "Winner1": false,
+            "Duration": "00:00:03",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Vagosi",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#66ccaf",
+              "Description": "\u003C3 suche lepidlo"
+            },
+            "Team2": {
+              "Name": "dawd",
+              "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\aries-svgrepo-com.svg",
+              "Color": "#666dcc",
+              "Description": ";ljlji"
+            },
+            "Winner1": false,
+            "Duration": "00:00:02",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "\u0CA0_\u0CA0",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#666dcc",
+              "Description": "\uD83D\uDC40"
+            },
+            "Team2": null,
+            "Winner1": true,
+            "Duration": "00:00:00",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Dong",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#a866cc",
+              "Description": "homosex"
+            },
+            "Team2": null,
+            "Winner1": true,
+            "Duration": "00:00:00",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Brezno",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc66b3",
+              "Description": "\uD83E\uDD22\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD22"
+            },
+            "Team2": null,
+            "Winner1": true,
+            "Duration": "00:00:00",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ],
+        [
+          {
+            "Team1": {
+              "Name": "Peter1v9",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "copium"
+            },
+            "Team2": {
+              "Name": "average",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "to nebol moj flash"
+            },
+            "Winner1": false,
+            "Duration": "00:00:05",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "BIG TONKA T",
+              "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\super-mushroom-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            },
+            "Team2": {
+              "Name": "aaaadw",
+              "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\meat-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "adw"
+            },
+            "Winner1": false,
+            "Duration": "00:00:04",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "dawd",
+              "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\aries-svgrepo-com.svg",
+              "Color": "#666dcc",
+              "Description": ";ljlji"
+            },
+            "Team2": {
+              "Name": "\u0CA0_\u0CA0",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#666dcc",
+              "Description": "\uD83D\uDC40"
+            },
+            "Winner1": false,
+            "Duration": "00:00:02",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Dong",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#a866cc",
+              "Description": "homosex"
+            },
+            "Team2": {
+              "Name": "Brezno",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc66b3",
+              "Description": "\uD83E\uDD22\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD22"
+            },
+            "Winner1": false,
+            "Duration": "00:00:01",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ],
+        [
+          {
+            "Team1": {
+              "Name": "average",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "to nebol moj flash"
+            },
+            "Team2": {
+              "Name": "aaaadw",
+              "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\meat-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "adw"
+            },
+            "Winner1": false,
+            "Duration": "00:00:03",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "\u0CA0_\u0CA0",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#666dcc",
+              "Description": "\uD83D\uDC40"
+            },
+            "Team2": {
+              "Name": "Brezno",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc66b3",
+              "Description": "\uD83E\uDD22\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD22"
+            },
+            "Winner1": false,
+            "Duration": "00:00:01",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ],
+        [
+          {
+            "Team1": {
+              "Name": "aaaadw",
+              "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\meat-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "adw"
+            },
+            "Team2": {
+              "Name": "Brezno",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc66b3",
+              "Description": "\uD83E\uDD22\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD22"
+            },
+            "Winner1": true,
+            "Duration": "00:00:02",
+            "IsFinal": true,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ]
+      ]
+    },
+    {
+      "Name": "addawwdad",
+      "StartDate": "2025-04-14T18:04:07.618357+02:00",
+      "Winner": {
+        "Name": "Vagosi",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#66ccaf",
+        "Description": "\u003C3 suche lepidlo"
+      },
+      "Rounds": [
+        [
+          {
+            "Team1": {
+              "Name": "DanoDrevo",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "rad odpisujem vodomery \uD83D\uDEC1 dawdaw dad adw d awd adw"
+            },
+            "Team2": {
+              "Name": "Dong",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#a866cc",
+              "Description": "homosex"
+            },
+            "Winner1": false,
+            "Duration": "00:00:07",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Zapalkari",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "\uD83E\uDD19\uD83E\uDD19"
+            },
+            "Team2": {
+              "Name": "Brezno",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc66b3",
+              "Description": "\uD83E\uDD22\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD22"
+            },
+            "Winner1": true,
+            "Duration": "00:00:01",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "zebrak",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#c2cc66",
+              "Description": "lorem ipsum"
+            },
+            "Team2": {
+              "Name": "Peter1v9",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "copium"
+            },
+            "Winner1": false,
+            "Duration": "00:00:01",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Vagosi",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#66ccaf",
+              "Description": "\u003C3 suche lepidlo"
+            },
+            "Team2": null,
+            "Winner1": true,
+            "Duration": "00:00:00",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ],
+        [
+          {
+            "Team1": {
+              "Name": "Dong",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#a866cc",
+              "Description": "homosex"
+            },
+            "Team2": {
+              "Name": "Zapalkari",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "\uD83E\uDD19\uD83E\uDD19"
+            },
+            "Winner1": false,
+            "Duration": "00:00:01",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Peter1v9",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "copium"
+            },
+            "Team2": {
+              "Name": "Vagosi",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#66ccaf",
+              "Description": "\u003C3 suche lepidlo"
+            },
+            "Winner1": false,
+            "Duration": "00:00:01",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ],
+        [
+          {
+            "Team1": {
+              "Name": "Zapalkari",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "\uD83E\uDD19\uD83E\uDD19"
+            },
+            "Team2": {
+              "Name": "Vagosi",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#66ccaf",
+              "Description": "\u003C3 suche lepidlo"
+            },
+            "Winner1": false,
+            "Duration": "00:00:01",
+            "IsFinal": true,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ]
+      ]
+    },
+    {
+      "Name": "2345456123",
+      "StartDate": "2025-06-15T00:27:11.0174221+02:00",
+      "Winner": {
+        "Name": "lgbt",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#7acc66",
+        "Description": "he/he \uD83E\uDD21"
+      },
+      "Rounds": [
+        [
+          {
+            "Team1": {
+              "Name": "DanoDrevo",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "rad odpisujem vodomery \uD83D\uDEC1 dawdaw dad adw d awd adw"
+            },
+            "Team2": {
+              "Name": "Vagosi",
+              "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\super-mushroom-svgrepo-com.svg",
+              "Color": "#a866cc",
+              "Description": "\u003C3 suche lepidlo"
+            },
+            "Winner1": true,
+            "Duration": "00:00:06",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Zapalkari",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc9c66",
+              "Description": "\uD83E\uDD19\uD83E\uDD19"
+            },
+            "Team2": {
+              "Name": "\u0CA0_\u0CA0",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#666dcc",
+              "Description": "\uD83D\uDC40"
+            },
+            "Winner1": false,
+            "Duration": "00:00:04",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "zebrak",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#c2cc66",
+              "Description": "lorem ipsum"
+            },
+            "Team2": {
+              "Name": "Dong",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#a866cc",
+              "Description": "homosex"
+            },
+            "Winner1": false,
+            "Duration": "00:00:01",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "lgbt",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#7acc66",
+              "Description": "he/he \uD83E\uDD21"
+            },
+            "Team2": {
+              "Name": "Brezno",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc66b3",
+              "Description": "\uD83E\uDD22\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD22"
+            },
+            "Winner1": true,
+            "Duration": "00:00:01",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ],
+        [
+          {
+            "Team1": {
+              "Name": "DanoDrevo",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#cc6666",
+              "Description": "rad odpisujem vodomery \uD83D\uDEC1 dawdaw dad adw d awd adw"
+            },
+            "Team2": {
+              "Name": "\u0CA0_\u0CA0",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#666dcc",
+              "Description": "\uD83D\uDC40"
+            },
+            "Winner1": false,
+            "Duration": "00:00:01",
+            "IsFinal": false,
+            "NextMatchSlot1": true,
+            "State": 3
+          },
+          {
+            "Team1": {
+              "Name": "Dong",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#a866cc",
+              "Description": "homosex"
+            },
+            "Team2": {
+              "Name": "lgbt",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#7acc66",
+              "Description": "he/he \uD83E\uDD21"
+            },
+            "Winner1": false,
+            "Duration": "00:00:01",
+            "IsFinal": false,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ],
+        [
+          {
+            "Team1": {
+              "Name": "\u0CA0_\u0CA0",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#666dcc",
+              "Description": "\uD83D\uDC40"
+            },
+            "Team2": {
+              "Name": "lgbt",
+              "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+              "Color": "#7acc66",
+              "Description": "he/he \uD83E\uDD21"
+            },
+            "Winner1": false,
+            "Duration": "00:00:02",
+            "IsFinal": true,
+            "NextMatchSlot1": false,
+            "State": 3
+          }
+        ]
+      ]
+    }
+  ],
+  "VersusTourneys": [
+    {
+      "Name": "123123",
+      "StartDate": "2024-06-03T01:51:56.258248+02:00",
+      "Team1": {
+        "Name": "DanoDrevo",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#cc6666",
+        "Description": "rad odpisujem vodomery \uD83D\uDEC1"
+      },
+      "Team2": {
+        "Name": "Zapalkari",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#cc9c66",
+        "Description": "\uD83E\uDD19\uD83E\uDD19"
+      },
+      "Winner": {
+        "Name": "Zapalkari",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#cc9c66",
+        "Description": "\uD83E\uDD19\uD83E\uDD19"
+      },
+      "Rounds": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "TotalRounds": 9,
+      "CurrentRound": 8
+    },
+    {
+      "Name": "1231231",
+      "StartDate": "2024-06-03T02:43:36.1857653+02:00",
+      "Team1": {
+        "Name": "DanoDrevo",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#cc6666",
+        "Description": "rad odpisujem vodomery \uD83D\uDEC1"
+      },
+      "Team2": {
+        "Name": "Zapalkari",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#cc9c66",
+        "Description": "\uD83E\uDD19\uD83E\uDD19"
+      },
+      "Winner": {
+        "Name": "Zapalkari",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#cc9c66",
+        "Description": "\uD83E\uDD19\uD83E\uDD19"
+      },
+      "Rounds": [
+        false,
+        false,
+        false
+      ],
+      "TotalRounds": 5,
+      "CurrentRound": 3
+    },
+    {
+      "Name": "dwaawaaaaaaaaaaa",
+      "StartDate": "2024-06-03T02:55:28.9636225+02:00",
+      "Team1": {
+        "Name": "lgbt",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#7acc66",
+        "Description": "he/he \uD83E\uDD21"
+      },
+      "Team2": {
+        "Name": "Vagosi",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#66ccaf",
+        "Description": "\u003C3 suche lepidlo"
+      },
+      "Winner": {
+        "Name": "Vagosi",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#66ccaf",
+        "Description": "\u003C3 suche lepidlo"
+      },
+      "Rounds": [
+        false,
+        false,
+        false
+      ],
+      "TotalRounds": 5,
+      "CurrentRound": 3
+    },
+    {
+      "Name": "12321312",
+      "StartDate": "2024-06-11T16:44:15.8597201+02:00",
+      "Team1": {
+        "Name": "\u0CA0_\u0CA0",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#666dcc",
+        "Description": "\uD83D\uDC40"
+      },
+      "Team2": {
+        "Name": "Dong",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#a866cc",
+        "Description": "homosex"
+      },
+      "Winner": {
+        "Name": "Dong",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#a866cc",
+        "Description": "homosex"
+      },
+      "Rounds": [
+        false,
+        false,
+        false
+      ],
+      "TotalRounds": 5,
+      "CurrentRound": 3
+    },
+    {
+      "Name": "1v1v1v",
+      "StartDate": "2025-04-14T18:04:35.234038+02:00",
+      "Team1": {
+        "Name": "Brezno",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#cc66b3",
+        "Description": "\uD83E\uDD22\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD22"
+      },
+      "Team2": {
+        "Name": "Peter1v9",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#cc6666",
+        "Description": "copium"
+      },
+      "Winner": {
+        "Name": "Peter1v9",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#cc6666",
+        "Description": "copium"
+      },
+      "Rounds": [
+        false,
+        false,
+        false
+      ],
+      "TotalRounds": 5,
+      "CurrentRound": 3
+    },
+    {
+      "Name": "42123",
+      "StartDate": "2025-05-13T17:23:47.2565483+02:00",
+      "Team1": {
+        "Name": "lgbt",
+        "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+        "Color": "#7acc66",
+        "Description": "he/he \uD83E\uDD21"
+      },
+      "Team2": {
+        "Name": "Vagosi",
+        "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\super-mushroom-svgrepo-com.svg",
+        "Color": "#a866cc",
+        "Description": "\u003C3 suche lepidlo"
+      },
+      "Winner": {
+        "Name": "Vagosi",
+        "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\super-mushroom-svgrepo-com.svg",
+        "Color": "#a866cc",
+        "Description": "\u003C3 suche lepidlo"
+      },
+      "Rounds": [
+        false,
+        false,
+        false
+      ],
+      "TotalRounds": 5,
+      "CurrentRound": 3
+    }
+  ],
+  "Teams": [
+    {
+      "Name": "DanoDrevo",
+      "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+      "Color": "#cc6666",
+      "Description": "rad odpisujem vodomery \uD83D\uDEC1 dawdaw dad adw d awd adw"
+    },
+    {
+      "Name": "Zapalkari",
+      "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+      "Color": "#cc9c66",
+      "Description": "\uD83E\uDD19\uD83E\uDD19"
+    },
+    {
+      "Name": "zebrak",
+      "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+      "Color": "#c2cc66",
+      "Description": "lorem ipsum"
+    },
+    {
+      "Name": "lgbt",
+      "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+      "Color": "#7acc66",
+      "Description": "he/he \uD83E\uDD21"
+    },
+    {
+      "Name": "Vagosi",
+      "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\super-mushroom-svgrepo-com.svg",
+      "Color": "#a866cc",
+      "Description": "\u003C3 suche lepidlo"
+    },
+    {
+      "Name": "\u0CA0_\u0CA0",
+      "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+      "Color": "#666dcc",
+      "Description": "\uD83D\uDC40"
+    },
+    {
+      "Name": "Dong",
+      "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+      "Color": "#a866cc",
+      "Description": "homosex"
+    },
+    {
+      "Name": "Brezno",
+      "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+      "Color": "#cc66b3",
+      "Description": "\uD83E\uDD22\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD2E\uD83E\uDD22"
+    },
+    {
+      "Name": "Peter1v9",
+      "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+      "Color": "#cc6666",
+      "Description": "copium"
+    },
+    {
+      "Name": "average",
+      "Icon": "/Assets/Icons/turd-svgrepo-com.svg",
+      "Color": "#cc9c66",
+      "Description": "to nebol moj flash"
+    },
+    {
+      "Name": "BIG TONKA T",
+      "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\super-mushroom-svgrepo-com.svg",
+      "Color": "#cc6666",
+      "Description": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    {
+      "Name": "aaaadw",
+      "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\meat-svgrepo-com.svg",
+      "Color": "#cc9c66",
+      "Description": "adw"
+    },
+    {
+      "Name": "dawd",
+      "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\aries-svgrepo-com.svg",
+      "Color": "#666dcc",
+      "Description": ";ljlji"
+    },
+    {
+      "Name": "kokotko",
+      "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\super-mushroom-svgrepo-com.svg",
+      "Color": "#cc6666",
+      "Description": "dadawd"
+    },
+    {
+      "Name": "awdawdadaw",
+      "Icon": "C:\\Users\\Richard Schwarz\\Downloads\\Tourney\\Tourney\\Assets\\Icons\\axe-svgrepo-com.svg",
+      "Color": "#666dcc",
+      "Description": "gedgeger"
+    }
+  ]
+}
