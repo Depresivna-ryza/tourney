@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="Tourney/App.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Assets/Icons.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Assets/icons.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Styles/ListBoxStyle.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Styles/MyListBox.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Styles/Styles1.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/AddTeamPageView.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/EliminationMatchView.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/EliminationTourneyView.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/HomePageView.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/MainWindow.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/MainWindowView.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/MatchView.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/NewTournamentPageView.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/NewTourneyView.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/OngoingTourneyView.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/TeamsPageView.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/TournamentPageView.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/TournamentsPageView.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/TourneyPageView.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/TourneyView.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/TourneysPageView.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/VersusTourney.axaml" value="Tourney/Tourney.csproj" />
+        <entry key="Tourney/Views/VersusTourneyView.axaml" value="Tourney/Tourney.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
