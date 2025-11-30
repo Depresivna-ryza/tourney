@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Tourney.Views.HomePageView"
+             Background="#16171c"
+             Padding="10"
+             CornerRadius="14">
+    <Grid ColumnDefinitions="*,*,*" RowDefinitions="100,*">
+    
+        <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0">
+            <TextBlock Text="Home" 
+                       FontSize="30" 
+                       HorizontalAlignment="Center" 
+                       FontFamily="Roboto"
+                       Margin="10,10"/>
+        </Grid>
+        
+        <Grid Grid.Column="0" Grid.Row="1">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Welcome to the Tourney App" FontWeight="Bold" FontSize="30" />
+                <TextBlock Text="This application allows you to manage and track tournaments." Margin="0,10,0,0" />
+        
+                <TextBlock Text="Teams" FontWeight="Bold" FontSize="20" Margin="0,20,0,0" />
+                <TextBlock Text="Teams are the competing entities in the tournaments. Each team has a unique icon." />
+        
+                <TextBlock Text="Tournament Types" FontWeight="Bold" FontSize="20" Margin="0,20,0,0" />
+                <TextBlock Text="There are two types of tournaments: Versus and Elimination." />
+                <TextBlock Text="Versus Tournament: In this type, each team competes against every other team." />
+                <TextBlock Text="Elimination Tournament: In this type, teams compete in a knockout format. The losing team in each match is eliminated from the tournament." />
+            </StackPanel>
+        </Grid>
+    </Grid>    
+</UserControl>

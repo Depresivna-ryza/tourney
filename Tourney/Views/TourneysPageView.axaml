@@ -1,0 +1,99 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:Tourney.Views;assembly=Tourney"
+             xmlns:viewModels="clr-namespace:Tourney.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Tourney.Views.TourneysPageView"
+             x:DataType="viewModels:TourneysPageViewModel"
+             Background="#1a1a1a"
+             Padding="10"
+             CornerRadius="14">
+    
+    <Grid ColumnDefinitions="2,3*,20,5*,2" RowDefinitions="100,20,*">
+        <Grid Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0">
+            <TextBlock Text="Tourneys" 
+                       FontSize="30" 
+                       HorizontalAlignment="Center"
+                       FontFamily="Roboto"
+                       Margin="10,10"/>
+        </Grid>
+        
+        <Border Grid.Column="1" Grid.Row="1" Padding="20,0">
+            <Grid Grid.ColumnDefinitions="*,*,*">
+                <TextBlock Grid.Column="0" Text="Name" HorizontalAlignment="Left"/>
+                <TextBlock Grid.Column="1"  Text="Date" HorizontalAlignment="Center"/>
+                <TextBlock Grid.Column="2" Text="Winner" HorizontalAlignment="Right"/>
+            </Grid>
+        </Border>
+        
+        
+        <ListBox Grid.Column="1" Grid.Row="2"
+                 ItemsSource="{Binding Tourneys}" 
+                 SelectedItem="{Binding SelectedTourney}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <!-- <StackPanel Orientation="Horizontal"> -->
+                    <!--     <TextBlock Text="{Binding Name}"/> -->
+                    <!--     <TextBlock Text="{Binding StartDate}"/> -->
+                    <!--     <TextBlock Text="{Binding Winner.Name}"/> -->
+                    <!-- </StackPanel> -->
+                    
+                    <Grid Grid.ColumnDefinitions="*,*,*">
+                        <TextBlock Grid.Column="0" Text="{Binding Name}" HorizontalAlignment="Left"/>
+                        <TextBlock Grid.Column="1"  Text="{Binding StartDate , StringFormat='{}{0:dd/MM/yyyy}'}" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="2" Text="{Binding Winner.Name}" HorizontalAlignment="Right"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            
+            <ListBox.Styles>
+                <Style Selector="ListBox">
+                    <Setter Property="Background" Value="#101010"/>
+                    <Setter Property="CornerRadius" Value="10"/>
+                    <Setter Property="Padding" Value="10"/>
+                </Style>
+
+                <Style Selector="ListBoxItem:pointerover /template/ ContentPresenter">
+                    <Setter Property="Foreground" Value="#a0a0a0"/>
+                    <Setter Property="Background" Value="#202020"/>
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+
+                <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background" Value="#303030"/>	
+                    <Setter Property="CornerRadius" Value="5"/>
+                        
+                    <Setter Property="Margin" Value="0,0,0,0"/>
+                </Style>
+
+                <Style Selector="ListBoxItem:pressed /template/ ContentPresenter">
+                    <Setter Property="Background" Value="#333333"/>	
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+                    
+                <Style Selector="ListBoxItem /template/ ContentPresenter">
+                    <Setter Property="Foreground" Value="#a0a0a0"/>
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </ListBox.Styles>
+        </ListBox>
+        
+        <TransitioningContentControl Grid.Column="3" Grid.Row="1" 
+                                     Grid.RowSpan="2"
+                                     Content="{Binding EliminationTourneyViewModel}"
+                                     IsVisible="{Binding IsEliminationTourney}"
+                                     />
+        
+        
+        <TransitioningContentControl Grid.Column="3" Grid.Row="1" 
+                                     Grid.RowSpan="2"
+                                     Content="{Binding VersusTourneyViewModel}"
+                                     IsVisible="{Binding IsVersusTourney}"
+                                     />
+        <!-- <views:TourneyView Grid.Column="1" Grid.Row="1" IsEnabled="False" DataContext="{Binding TourneyViewModel}" /> -->
+    </Grid>
+
+</UserControl>
